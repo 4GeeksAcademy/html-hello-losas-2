@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maison Atelier | Moda francesa online: camisas, pantalones, calzado y accesorios</title>
+  <meta name="description" content="Descubre la nueva colección de Maison Atelier, moda francesa atemporal. Camisas, pantalones, calzado y accesorios con envío a toda Europa.">
+  <meta name="theme-color" content="#1c1917">
+  <link rel="canonical" href="https://www.example.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maison Atelier">
+  <meta property="og:title" content="Maison Atelier | Moda francesa online">
+  <meta property="og:description" content="Nueva colección de moda francesa atemporal. Camisas, pantalones, calzado y accesorios.">
+  <meta property="og:url" content="https://www.example.com/">
+  <meta property="og:image" content="https://picsum.photos/seed/maison-hero/1200/630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.example.com/#organization",
+        "name": "Maison Atelier",
+        "url": "https://www.example.com/",
+        "logo": "https://www.example.com/logo.png",
+        "address": { "@type": "PostalAddress", "addressLocality": "París", "addressCountry": "FR" },
+        "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": "hola@example.com", "availableLanguage": ["es", "fr", "en"] }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.example.com/#website",
+        "url": "https://www.example.com/",
+        "name": "Maison Atelier",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://www.example.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.example.com/catalogo.html?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Nuevos lanzamientos",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "url": "https://www.example.com/producto.html", "name": "Camisa de lino Lyon" },
+          { "@type": "ListItem", "position": 2, "url": "https://www.example.com/producto.html", "name": "Pantalón chino Marais" },
+          { "@type": "ListItem", "position": 3, "url": "https://www.example.com/producto.html", "name": "Zapatillas de cuero Bastille" },
+          { "@type": "ListItem", "position": 4, "url": "https://www.example.com/producto.html", "name": "Bufanda de lana Seine" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased">
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-stone-900 focus:px-4 focus:py-2 focus:text-white">
+    Saltar al contenido principal
+  </a>
+
+  <!-- Navbar (reutilizable en todas las vistas) -->
+  <header class="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Atelier, ir al inicio">
+        Maison <span class="font-light">Atelier</span>
+      </a>
+
+      <form action="catalogo.html" method="get" role="search" class="order-last w-full md:order-none md:mx-6 md:flex-1">
+        <label for="buscar" class="sr-only">Buscar productos</label>
+        <div class="flex items-center rounded-full border border-stone-300 bg-white focus-within:border-stone-900 focus-within:ring-2 focus-within:ring-stone-900/20">
+          <input id="buscar" name="q" type="search" placeholder="Buscar camisas, pantalones, calzado…" autocomplete="off"
+            class="w-full rounded-full bg-transparent px-4 py-2 text-sm placeholder:text-stone-500 focus:outline-none">
+          <button type="submit" class="mr-1 rounded-full bg-stone-900 px-4 py-1.5 text-sm font-medium text-white hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">
+            Buscar
+          </button>
+        </div>
+      </form>
+
+      <nav aria-label="Cuenta y carrito" class="ml-auto flex items-center gap-2 md:ml-0">
+        <details class="relative">
+          <summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900 [&::-webkit-details-marker]:hidden">
+            <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.1a7.5 7.5 0 0 1 15 0"/></svg>
+            <span class="hidden sm:inline">Mi cuenta</span>
+            <span class="sr-only sm:hidden">Mi cuenta</span>
+          </summary>
+          <ul class="absolute right-0 mt-2 w-48 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
+            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
+            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
+            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
+          </ul>
+        </details>
+
+        <a href="carrito.html" class="relative flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900">
+          <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+          <span class="hidden sm:inline">Carrito</span>
+          <span class="sr-only sm:hidden">Carrito</span>
+          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" aria-label="3 productos en el carrito">3</span>
+        </a>
+      </nav>
+    </div>
+
+    <nav aria-label="Categorías principales" class="border-t border-stone-100">
+      <ul class="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 text-sm sm:px-6 lg:px-8">
+        <li><a href="catalogo.html" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Todo</a></li>
+        <li><a href="catalogo.html?categoria=camisas" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Camisas</a></li>
+        <li><a href="catalogo.html?categoria=pantalones" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Pantalones</a></li>
+        <li><a href="catalogo.html?categoria=calzado" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Calzado</a></li>
+        <li><a href="catalogo.html?categoria=accesorios" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Accesorios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- Hero -->
+    <section aria-labelledby="hero-titulo" class="bg-stone-900 text-white">
+      <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-20 lg:px-8">
+        <div>
+          <p class="text-sm font-medium uppercase tracking-widest text-amber-300">Colección Primavera-Verano</p>
+          <h1 id="hero-titulo" class="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Elegancia francesa para cada día
+          </h1>
+          <p class="mt-4 max-w-prose text-base text-stone-300 sm:text-lg">
+            Prendas atemporales, tejidos naturales y cortes cuidados, diseñados en París para durar temporada tras temporada.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="catalogo.html" class="inline-flex min-h-11 items-center rounded-full bg-white px-6 text-sm font-semibold text-stone-900 hover:bg-stone-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              Ver la colección
+            </a>
+            <a href="#nuevos" class="inline-flex min-h-11 items-center rounded-full border border-stone-500 px-6 text-sm font-semibold hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              Nuevos lanzamientos
+            </a>
+          </div>
+        </div>
+        <img src="https://picsum.photos/seed/maison-hero/800/600" width="800" height="600"
+          alt="Modelo vistiendo la colección de primavera-verano de Maison Atelier"
+          class="aspect-4/3 w-full rounded-2xl object-cover">
+      </div>
+    </section>
+
+    <!-- Nuevos lanzamientos -->
+    <section id="nuevos" aria-labelledby="nuevos-titulo" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <h2 id="nuevos-titulo" class="text-2xl font-semibold tracking-tight sm:text-3xl">Nuevos lanzamientos</h2>
+        <a href="catalogo.html" class="text-sm font-medium underline underline-offset-4 hover:text-stone-600">Ver todo<span class="sr-only"> los nuevos lanzamientos</span></a>
+      </div>
+
+      <ul class="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <li>
+          <article class="group">
+            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="https://picsum.photos/seed/camisa-lyon/400/500" width="400" height="500" loading="lazy" alt="Camisa de lino Lyon en color crudo" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Camisa de lino Lyon</h3>
+              <p class="text-sm text-stone-600">Camisas</p>
+              <p class="mt-1 font-semibold">59,90&nbsp;€</p>
+            </a>
+          </article>
+        </li>
+        <li>
+          <article class="group">
+            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="https://picsum.photos/seed/chino-marais/400/500" width="400" height="500" loading="lazy" alt="Pantalón chino Marais en color arena" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Pantalón chino Marais</h3>
+              <p class="text-sm text-stone-600">Pantalones</p>
+              <p class="mt-1 font-semibold">74,90&nbsp;€</p>
+            </a>
+          </article>
+        </li>
+        <li>
+          <article class="group">
+            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="https://picsum.photos/seed/zapatilla-bastille/400/500" width="400" height="500" loading="lazy" alt="Zapatillas de cuero Bastille en blanco" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Zapatillas de cuero Bastille</h3>
+              <p class="text-sm text-stone-600">Calzado</p>
+              <p class="mt-1 font-semibold">119,00&nbsp;€</p>
+            </a>
+          </article>
+        </li>
+        <li>
+          <article class="group">
+            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="https://picsum.photos/seed/bufanda-seine/400/500" width="400" height="500" loading="lazy" alt="Bufanda de lana Seine en gris perla" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Bufanda de lana Seine</h3>
+              <p class="text-sm text-stone-600">Accesorios</p>
+              <p class="mt-1 font-semibold">39,90&nbsp;€</p>
+            </a>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Más vendidos -->
+    <section aria-labelledby="vendidos-titulo" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+          <h2 id="vendidos-titulo" class="text-2xl font-semibold tracking-tight sm:text-3xl">Más vendidos</h2>
+          <a href="catalogo.html" class="text-sm font-medium underline underline-offset-4 hover:text-stone-600">Ver todo<span class="sr-only"> los más vendidos</span></a>
+        </div>
+
+        <ul class="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+          <li>
+            <article class="group">
+              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="https://picsum.photos/seed/polo-nice/400/500" width="400" height="500" loading="lazy" alt="Polo piqué Nice en azul marino" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Polo piqué Nice</h3>
+                <p class="text-sm text-stone-600">Camisas</p>
+                <p class="mt-1 font-semibold">45,00&nbsp;€</p>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="group">
+              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="https://picsum.photos/seed/vaquero-paris/400/500" width="400" height="500" loading="lazy" alt="Vaquero recto Paris en denim oscuro" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Vaquero recto Paris</h3>
+                <p class="text-sm text-stone-600">Pantalones</p>
+                <p class="mt-1 font-semibold">89,90&nbsp;€</p>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="group">
+              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="https://picsum.photos/seed/mocasin-lille/400/500" width="400" height="500" loading="lazy" alt="Mocasines Lille en cuero marrón" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Mocasines Lille</h3>
+                <p class="text-sm text-stone-600">Calzado</p>
+                <p class="mt-1 font-semibold">129,00&nbsp;€</p>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article class="group">
+              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="https://picsum.photos/seed/cinturon-orleans/400/500" width="400" height="500" loading="lazy" alt="Cinturón de cuero Orléans en negro" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Cinturón Orléans</h3>
+                <p class="text-sm text-stone-600">Accesorios</p>
+                <p class="mt-1 font-semibold">34,90&nbsp;€</p>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (reutilizable en todas las vistas) -->
+  <footer class="bg-stone-900 text-stone-300">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div>
+        <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
+        <p class="mt-3 text-sm">Moda francesa atemporal, diseñada en París.</p>
+      </div>
+
+      <nav aria-labelledby="footer-categorias">
+        <h2 id="footer-categorias" class="text-sm font-semibold uppercase tracking-wider text-white">Categorías</h2>
+        <ul class="mt-3 space-y-1 text-sm">
+          <li><a href="catalogo.html?categoria=calzado" class="inline-block py-1 hover:text-white hover:underline">Calzado</a></li>
+          <li><a href="catalogo.html?categoria=camisas" class="inline-block py-1 hover:text-white hover:underline">Camisas</a></li>
+          <li><a href="catalogo.html?categoria=pantalones" class="inline-block py-1 hover:text-white hover:underline">Pantalones</a></li>
+          <li><a href="catalogo.html?categoria=accesorios" class="inline-block py-1 hover:text-white hover:underline">Accesorios</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-legal">
+        <h2 id="footer-legal" class="text-sm font-semibold uppercase tracking-wider text-white">Legal</h2>
+        <ul class="mt-3 space-y-1 text-sm">
+          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Términos y condiciones</a></li>
+          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Política de privacidad</a></li>
+          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Sobre la marca</a></li>
+        </ul>
+      </nav>
+
+      <section aria-labelledby="footer-contacto">
+        <h2 id="footer-contacto" class="text-sm font-semibold uppercase tracking-wider text-white">Contacto</h2>
+        <address class="mt-3 space-y-1 text-sm not-italic">
+          <p>12 Rue de Rivoli, 75004 París, Francia</p>
+          <p><a href="mailto:hola@example.com" class="hover:text-white hover:underline">hola@example.com</a></p>
+          <p><a href="tel:+33100000000" class="hover:text-white hover:underline">+33 1 00 00 00 00</a></p>
+        </address>
+      </section>
+    </div>
+    <div class="border-t border-stone-800 py-4 text-center text-xs">
+      <p>&copy; 2026 Maison Atelier. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
