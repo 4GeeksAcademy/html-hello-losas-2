@@ -15,6 +15,7 @@ nav[aria-label="Categorías principales"] a[aria-current="page"] {
 }
 
 .product-view { display: none; }
+.product-view.is-active { display: block; }
 .gallery-frame { position: relative; aspect-ratio: 4 / 5; }
 .gallery-image {
   display: block;

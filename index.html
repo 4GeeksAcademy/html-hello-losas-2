@@ -6,13 +6,10 @@
   <title>Maison Rive | Moda francesa online: camisas, pantalones, calzado y accesorios</title>
   <meta name="description" content="Descubre Maison Rive, marca francesa independiente con sede en París. Camisas, denim, calzado y accesorios de estilo mediterráneo.">
   <meta name="theme-color" content="#1c1917">
-  <link rel="canonical" href="https://www.example.com/">
-
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Maison Rive">
   <meta property="og:title" content="Maison Rive | Moda francesa online">
   <meta property="og:description" content="Marca francesa independiente con sede en París. Descubre la cápsula Ligne Côte de Maison Rive.">
-  <meta property="og:url" content="https://www.example.com/">
   <meta property="og:image" content="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&auto=format&fit=crop&q=80">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -25,36 +22,23 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.example.com/#organization",
         "name": "Maison Rive",
         "description": "Marca francesa independiente de ropa y accesorios con sede en París.",
-        "url": "https://www.example.com/",
-        "logo": "https://www.example.com/logo.png",
-        "foundingLocation": { "@type": "Place", "name": "París, Francia" },
-        "address": { "@type": "PostalAddress", "addressLocality": "París", "addressCountry": "FR" },
-        "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": "hola@example.com", "availableLanguage": ["es", "fr", "en"] }
+        "foundingLocation": { "@type": "Place", "name": "París, Francia" }
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.example.com/#website",
-        "url": "https://www.example.com/",
         "name": "Maison Rive",
-        "inLanguage": "es",
-        "publisher": { "@id": "https://www.example.com/#organization" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.example.com/catalogo.html?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "es"
       },
       {
         "@type": "ItemList",
         "name": "Nuevos lanzamientos",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "url": "https://www.example.com/producto.html#lin-lyon", "name": "Camisa de cuadros Lyon" },
-            { "@type": "ListItem", "position": 2, "url": "https://www.example.com/producto.html#chino-marais", "name": "Chino Marais" },
-            { "@type": "ListItem", "position": 3, "url": "https://www.example.com/producto.html#sneaker-bastille", "name": "Sneaker de lona burdeos Bastille" },
-            { "@type": "ListItem", "position": 4, "url": "https://www.example.com/producto.html#lunettes-rive", "name": "Gafas de sol Rive" }
+            { "@type": "ListItem", "position": 1, "name": "Camisa de cuadros Lyon" },
+            { "@type": "ListItem", "position": 2, "name": "Chino Marais" },
+            { "@type": "ListItem", "position": 3, "name": "Sneaker de lona burdeos Bastille" },
+            { "@type": "ListItem", "position": 4, "name": "Gafas de sol Rive" }
         ]
       }
     ]
@@ -71,7 +55,7 @@
   <header class="border-b border-stone-200 bg-white">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
       <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
-        Maison <span class="font-light">Atelier</span>
+        Maison <span class="font-light">Rive</span>
       </a>
 
       <form action="catalogo.html" method="get" role="search" class="order-last w-full md:order-none md:mx-6 md:flex-1">
@@ -103,7 +87,7 @@
           <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
           <span class="hidden sm:inline">Carrito</span>
           <span class="sr-only sm:hidden">Carrito</span>
-          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="3 productos en el carrito">3</span>
+          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="0 productos en el carrito">0</span>
         </a>
       </nav>
     </div>
@@ -124,7 +108,7 @@
     <section aria-labelledby="hero-titulo" class="bg-stone-900 text-white">
       <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-20 lg:px-8">
         <div>
-          <p class="text-sm font-medium uppercase tracking-widest text-amber-300">Ligne Côte · Été 2026</p>
+          <p class="text-sm font-medium uppercase tracking-widest text-amber-300">Ligne Côte · Automne 2026</p>
           <h1 id="hero-titulo" class="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             Un vestuario ligero, hecho para durar
           </h1>
@@ -257,7 +241,7 @@
   <footer class="bg-stone-900 text-stone-300">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       <div>
-        <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
+        <p class="text-lg font-semibold text-white">Maison <span class="font-light">Rive</span></p>
         <p class="mt-3 text-sm">Prendas esenciales diseñadas en París para acompañarte temporada tras temporada.</p>
       </div>
 
@@ -271,21 +255,19 @@
         </ul>
       </nav>
 
-      <nav aria-labelledby="footer-legal">
+      <section aria-labelledby="footer-legal">
         <h2 id="footer-legal" class="text-sm font-semibold uppercase tracking-wider text-white">Legal</h2>
         <ul class="mt-3 space-y-1 text-sm">
-          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Términos y condiciones</a></li>
-          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Política de privacidad</a></li>
-          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Sobre la marca</a></li>
+          <li><span class="inline-block py-1">Términos y condiciones</span></li>
+          <li><span class="inline-block py-1">Política de privacidad</span></li>
+          <li><span class="inline-block py-1">Sobre la marca</span></li>
         </ul>
-      </nav>
+      </section>
 
       <section aria-labelledby="footer-contacto">
         <h2 id="footer-contacto" class="text-sm font-semibold uppercase tracking-wider text-white">Contacto</h2>
         <address class="mt-3 space-y-1 text-sm not-italic">
-          <p>12 Rue de Rivoli, 75004 París, Francia</p>
-          <p><a href="mailto:hola@example.com" class="hover:text-white hover:underline">hola@example.com</a></p>
-          <p><a href="tel:+33100000000" class="hover:text-white hover:underline">+33 1 00 00 00 00</a></p>
+          <p>Información de contacto próximamente.</p>
         </address>
       </section>
     </div>
