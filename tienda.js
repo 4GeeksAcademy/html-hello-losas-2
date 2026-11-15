@@ -294,6 +294,48 @@ function initPagos() {
   actualizar();
 }
 
+function initCatalogo() {
+  const lista = document.querySelector("#listado-titulo")?.nextElementSibling;
+  if (!lista) return;
+
+  const productos = [...lista.querySelectorAll(":scope > li")];
+  if (!productos.length) return;
+
+  const parametros = new URLSearchParams(window.location.search);
+  const campoBusqueda = document.getElementById("buscar");
+  const estado = document.getElementById("estado-resultados");
+  const categorias = new Set(["camisas", "pantalones", "calzado", "accesorios"]);
+  const categoriaSolicitada = parametros.get("categoria") ?? "";
+  const categoriaActiva = categorias.has(categoriaSolicitada) ? categoriaSolicitada : "";
+  const textoBusqueda = parametros.get("q")?.trim() ?? "";
+  const normalizar = (texto) => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+  if (campoBusqueda) campoBusqueda.value = textoBusqueda;
+
+  let visibles = 0;
+  for (const producto of productos) {
+    const etiquetaCategoria = normalizar(producto.querySelector("p.text-stone-600")?.textContent.trim() ?? "");
+    const coincideCategoria = !categoriaActiva || etiquetaCategoria === categoriaActiva;
+    const coincideBusqueda = !textoBusqueda || normalizar(producto.textContent).includes(normalizar(textoBusqueda));
+    const mostrar = coincideCategoria && coincideBusqueda;
+
+    producto.hidden = !mostrar;
+    if (mostrar) visibles += 1;
+  }
+
+  if (estado) {
+    estado.textContent = visibles
+      ? `Mostrando ${visibles} de ${productos.length} productos`
+      : "No hay productos que coincidan con la búsqueda.";
+  }
+
+  document.querySelectorAll('nav[aria-label="Categorías principales"] a').forEach((enlace) => {
+    const categoriaEnlace = new URL(enlace.href, window.location.href).searchParams.get("categoria") ?? "";
+    if (categoriaEnlace === categoriaActiva) enlace.setAttribute("aria-current", "page");
+    else enlace.removeAttribute("aria-current");
+  });
+}
+
 function initGalerias() {
   document.querySelectorAll(".product-view article").forEach((articulo) => {
     const galeria = articulo.firstElementChild;
@@ -390,6 +432,7 @@ function initGalerias() {
   });
 }
 
+initCatalogo();
 initGalerias();
 renderCuenta();
 initCuenta();
