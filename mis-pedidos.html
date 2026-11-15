@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis pedidos | Maison Rive</title>
+  <meta name="description" content="Consulta el estado y el detalle de tus pedidos en Maison Rive.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1c1917">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased">
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-stone-900 focus:px-4 focus:py-2 focus:text-white">
+    Saltar al contenido principal
+  </a>
+
+  <!-- Navbar (reutilizable en todas las vistas) -->
+  <header class="border-b border-stone-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
+        Maison <span class="font-light">Atelier</span>
+      </a>
+
+      <form action="catalogo.html" method="get" role="search" class="order-last w-full md:order-none md:mx-6 md:flex-1">
+        <label for="buscar" class="sr-only">Buscar productos</label>
+        <div class="flex items-center rounded-full border border-stone-300 bg-white focus-within:border-stone-900 focus-within:ring-2 focus-within:ring-stone-900/20">
+          <input id="buscar" name="q" type="search" placeholder="Buscar camisas, pantalones, calzado…" autocomplete="off"
+            class="w-full rounded-full bg-transparent px-4 py-2 text-sm placeholder:text-stone-500 focus:outline-none">
+          <button type="submit" class="mr-1 rounded-full bg-stone-900 px-4 py-1.5 text-sm font-medium text-white hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">
+            Buscar
+          </button>
+        </div>
+      </form>
+
+      <nav aria-label="Cuenta y carrito" class="ml-auto flex items-center gap-2 md:ml-0">
+        <details class="relative">
+          <summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900 [&::-webkit-details-marker]:hidden">
+            <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.1a7.5 7.5 0 0 1 15 0"/></svg>
+            <span class="hidden sm:inline">Mi cuenta</span>
+            <span class="sr-only sm:hidden">Mi cuenta</span>
+          </summary>
+          <ul class="absolute right-0 z-50 mt-2 w-52 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
+            <li><a href="login.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
+            <li><a href="registro.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
+            <li><a href="mis-pedidos.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
+          </ul>
+        </details>
+
+        <a href="carrito.html" class="relative flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900">
+          <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+          <span class="hidden sm:inline">Carrito</span>
+          <span class="sr-only sm:hidden">Carrito</span>
+          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="3 productos en el carrito">3</span>
+        </a>
+      </nav>
+    </div>
+
+    <nav aria-label="Categorías principales" class="border-t border-stone-100">
+      <ul class="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 text-sm sm:px-6 lg:px-8">
+        <li><a href="catalogo.html" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Todo</a></li>
+        <li><a href="catalogo.html?categoria=camisas" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Camisas</a></li>
+        <li><a href="catalogo.html?categoria=pantalones" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Pantalones</a></li>
+        <li><a href="catalogo.html?categoria=calzado" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Calzado</a></li>
+        <li><a href="catalogo.html?categoria=accesorios" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Accesorios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Mi cuenta</h1>
+    <p id="saludo-cuenta" class="mt-2 text-stone-600">Hola, Laura. Aquí tienes el resumen de tu actividad.</p>
+    <p class="mt-4 rounded-md bg-amber-50 p-3 text-sm text-amber-900" role="note">Versión de prueba: no hay base de datos y no se guarda ningún dato. Puedes entrar con cualquier correo y contraseña.</p>
+      <p class="mt-4 rounded-md bg-amber-50 p-3 text-sm text-stone-700" role="note">Versión de prueba: el perfil demo se guarda solo en este navegador. No hay base de datos y nunca guardamos tu contraseña.</p>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-[14rem_1fr] lg:items-start">
+      <nav aria-label="Menú de cuenta" class="rounded-xl border border-stone-200 bg-white p-2">
+        <ul class="flex gap-1 overflow-x-auto lg:flex-col">
+          <li><a href="mis-pedidos.html" aria-current="page" class="flex min-h-11 items-center whitespace-nowrap rounded-md bg-stone-900 px-4 text-sm font-semibold text-white">Mis pedidos</a></li>
+          <li><a href="#datos" class="flex min-h-11 items-center whitespace-nowrap rounded-md px-4 text-sm hover:bg-stone-100">Mis datos</a></li>
+          <li><a href="#direcciones" class="flex min-h-11 items-center whitespace-nowrap rounded-md px-4 text-sm hover:bg-stone-100">Direcciones</a></li>
+          <li><a href="index.html" data-cerrar-sesion class="flex min-h-11 items-center whitespace-nowrap rounded-md px-4 text-sm hover:bg-stone-100">Cerrar sesión</a></li>
+        </ul>
+      </nav>
+
+      <div class="space-y-10">
+        <section aria-labelledby="pedidos-titulo">
+          <h2 id="pedidos-titulo" class="text-2xl font-semibold tracking-tight">Mis pedidos</h2>
+          <ul id="pedidos-demo" class="mt-4 space-y-5">
+        <li>
+          <article aria-labelledby="pedido-MA-2026-0142" class="rounded-xl border border-stone-200 bg-white">
+            <header class="flex flex-wrap items-center justify-between gap-3 border-b border-stone-200 p-4 sm:p-6">
+              <div>
+                <h3 id="pedido-MA-2026-0142" class="font-semibold">Pedido MA-2026-0142</h3>
+                <p class="text-sm text-stone-600">Realizado el <time datetime="2026-11-02">2 de noviembre de 2026</time></p>
+              </div>
+              <p class="rounded-full px-3 py-1 text-sm font-medium bg-amber-100 text-amber-900"><span class="sr-only">Estado: </span>En camino</p>
+            </header>
+            <ul class="divide-y divide-stone-100 px-4 sm:px-6">
+              <li class="flex items-center gap-4 py-4">
+                <img src="assets/products/lin-lyon-1.png" width="64" height="80" loading="lazy" alt="" class="aspect-4/5 w-16 rounded-md object-cover">
+                <div class="flex-1 text-sm"><p class="font-medium">Camisa de cuadros Lyon</p><p class="text-stone-600">Talla M · Cantidad 1</p></div>
+                <p class="text-sm font-medium">29,99&nbsp;€</p>
+              </li>
+              <li class="flex items-center gap-4 py-4">
+                <img src="assets/products/sneaker-bastille-1.png" width="64" height="80" loading="lazy" alt="" class="aspect-4/5 w-16 rounded-md object-cover">
+                <div class="flex-1 text-sm"><p class="font-medium">Sneaker de lona burdeos Bastille</p><p class="text-stone-600">Talla 42 · Cantidad 1</p></div>
+                <p class="text-sm font-medium">149,99&nbsp;€</p>
+              </li>
+            </ul>
+            <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 p-4 sm:p-6">
+              <p class="text-sm text-stone-600">Envío: Gratis</p>
+              <p class="font-semibold">Total (IVA incluido): 217,78&nbsp;€</p>
+              <a href="#" class="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-5 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">Ver detalle<span class="sr-only"> del pedido MA-2026-0142</span></a>
+            </footer>
+          </article>
+        </li>
+        <li>
+          <article aria-labelledby="pedido-MA-2026-0121" class="rounded-xl border border-stone-200 bg-white">
+            <header class="flex flex-wrap items-center justify-between gap-3 border-b border-stone-200 p-4 sm:p-6">
+              <div>
+                <h3 id="pedido-MA-2026-0121" class="font-semibold">Pedido MA-2026-0121</h3>
+                <p class="text-sm text-stone-600">Realizado el <time datetime="2026-10-20">20 de octubre de 2026</time></p>
+              </div>
+              <p class="rounded-full px-3 py-1 text-sm font-medium bg-emerald-100 text-emerald-900"><span class="sr-only">Estado: </span>Entregado</p>
+            </header>
+            <ul class="divide-y divide-stone-100 px-4 sm:px-6">
+              <li class="flex items-center gap-4 py-4">
+                <img src="assets/products/jean-paris-1.png" width="64" height="80" loading="lazy" alt="" class="aspect-4/5 w-16 rounded-md object-cover">
+                <div class="flex-1 text-sm"><p class="font-medium">Vaquero recto Paris</p><p class="text-stone-600">Talla M · Cantidad 1</p></div>
+                <p class="text-sm font-medium">89,90&nbsp;€</p>
+              </li>
+              <li class="flex items-center gap-4 py-4">
+                <img src="assets/products/lunettes-rive-1.png" width="64" height="80" loading="lazy" alt="" class="aspect-4/5 w-16 rounded-md object-cover">
+                <div class="flex-1 text-sm"><p class="font-medium">Gafas de sol Rive</p><p class="text-stone-600">Talla Única · Cantidad 1</p></div>
+                <p class="text-sm font-medium">29,99&nbsp;€</p>
+              </li>
+            </ul>
+            <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 p-4 sm:p-6">
+              <p class="text-sm text-stone-600">Envío: Gratis</p>
+              <p class="font-semibold">Total (IVA incluido): 145,07&nbsp;€</p>
+              <a href="#" class="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-5 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">Ver detalle<span class="sr-only"> del pedido MA-2026-0121</span></a>
+            </footer>
+          </article>
+        </li>
+        <li>
+          <article aria-labelledby="pedido-MA-2026-0098" class="rounded-xl border border-stone-200 bg-white">
+            <header class="flex flex-wrap items-center justify-between gap-3 border-b border-stone-200 p-4 sm:p-6">
+              <div>
+                <h3 id="pedido-MA-2026-0098" class="font-semibold">Pedido MA-2026-0098</h3>
+                <p class="text-sm text-stone-600">Realizado el <time datetime="2026-10-05">5 de octubre de 2026</time></p>
+              </div>
+              <p class="rounded-full px-3 py-1 text-sm font-medium bg-emerald-100 text-emerald-900"><span class="sr-only">Estado: </span>Entregado</p>
+            </header>
+            <ul class="divide-y divide-stone-100 px-4 sm:px-6">
+              <li class="flex items-center gap-4 py-4">
+                <img src="assets/products/short-biarritz-1.png" width="64" height="80" loading="lazy" alt="" class="aspect-4/5 w-16 rounded-md object-cover">
+                <div class="flex-1 text-sm"><p class="font-medium">Short a rayas Biarritz</p><p class="text-stone-600">Talla S · Cantidad 1</p></div>
+                <p class="text-sm font-medium">45,90&nbsp;€</p>
+              </li>
+            </ul>
+            <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 p-4 sm:p-6">
+              <p class="text-sm text-stone-600">Envío: 4,95&nbsp;€</p>
+              <p class="font-semibold">Total (IVA incluido): 60,49&nbsp;€</p>
+              <a href="#" class="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-5 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">Ver detalle<span class="sr-only"> del pedido MA-2026-0098</span></a>
+            </footer>
+          </article>
+        </li>
+          </ul>
+          <div id="pedidos-vacios" class="mt-4 hidden rounded-xl border border-stone-200 bg-white px-6 py-10 text-center">
+            <svg aria-hidden="true" class="mx-auto size-10 text-stone-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h7.5m-7.5 3h7.5m-7.5 3h4.5M4.5 4.875A2.625 2.625 0 0 1 7.125 2.25h9.75A2.625 2.625 0 0 1 19.5 4.875v14.25a2.625 2.625 0 0 1-2.625 2.625h-9.75A2.625 2.625 0 0 1 4.5 19.125V4.875Z"/></svg>
+            <h3 class="mt-3 text-lg font-semibold">Todavía no tienes pedidos</h3>
+            <p class="mt-1 text-sm text-stone-600">Cuando hagas tu primera compra, aparecerá aquí.</p>
+            <a href="catalogo.html" class="mt-5 inline-flex min-h-11 items-center rounded-full bg-stone-900 px-5 text-sm font-semibold text-white hover:bg-stone-700">Explorar catálogo</a>
+          </div>
+        </section>
+
+        <section id="datos" aria-labelledby="datos-titulo" class="scroll-mt-6 rounded-xl border border-stone-200 bg-white p-6">
+          <h2 id="datos-titulo" class="text-xl font-semibold tracking-tight">Mis datos</h2>
+          <dl class="mt-4 grid gap-4 text-sm sm:grid-cols-2">
+            <div><dt class="text-stone-600">Nombre</dt><dd id="perfil-nombre" class="font-medium">Laura Martín</dd></div>
+            <div><dt class="text-stone-600">Correo electrónico</dt><dd id="perfil-email" class="font-medium">laura@example.com</dd></div>
+            <div><dt class="text-stone-600">Teléfono</dt><dd id="perfil-telefono" class="font-medium">+34 600 000 000</dd></div>
+          </dl>
+        </section>
+
+        <section id="direcciones" aria-labelledby="direcciones-titulo" class="scroll-mt-6 rounded-xl border border-stone-200 bg-white p-6">
+          <h2 id="direcciones-titulo" class="text-xl font-semibold tracking-tight">Direcciones</h2>
+          <address class="mt-4 text-sm not-italic"><span class="font-medium">Casa</span><br>Calle Mayor 12, 3.º B<br>28013 Madrid, España</address>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="tienda.js" defer></script>
+
+  <!-- Footer (reutilizable en todas las vistas) -->
+  <footer class="mt-8 bg-stone-900 text-stone-300">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div>
+        <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
+        <p class="mt-3 text-sm">Prendas esenciales diseñadas en París para acompañarte temporada tras temporada.</p>
+      </div>
+
+      <nav aria-labelledby="footer-categorias">
+        <h2 id="footer-categorias" class="text-sm font-semibold uppercase tracking-wider text-white">Categorías</h2>
+        <ul class="mt-3 space-y-1 text-sm">
+          <li><a href="catalogo.html?categoria=calzado" class="inline-block py-1 hover:text-white hover:underline">Calzado</a></li>
+          <li><a href="catalogo.html?categoria=camisas" class="inline-block py-1 hover:text-white hover:underline">Camisas</a></li>
+          <li><a href="catalogo.html?categoria=pantalones" class="inline-block py-1 hover:text-white hover:underline">Pantalones</a></li>
+          <li><a href="catalogo.html?categoria=accesorios" class="inline-block py-1 hover:text-white hover:underline">Accesorios</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-legal">
+        <h2 id="footer-legal" class="text-sm font-semibold uppercase tracking-wider text-white">Legal</h2>
+        <ul class="mt-3 space-y-1 text-sm">
+          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Términos y condiciones</a></li>
+          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Política de privacidad</a></li>
+          <li><a href="#" class="inline-block py-1 hover:text-white hover:underline">Sobre la marca</a></li>
+        </ul>
+      </nav>
+
+      <section aria-labelledby="footer-contacto">
+        <h2 id="footer-contacto" class="text-sm font-semibold uppercase tracking-wider text-white">Contacto</h2>
+        <address class="mt-3 space-y-1 text-sm not-italic">
+          <p>12 Rue de Rivoli, 75004 París, Francia</p>
+          <p><a href="mailto:hola@example.com" class="hover:text-white hover:underline">hola@example.com</a></p>
+          <p><a href="tel:+33100000000" class="hover:text-white hover:underline">+33 1 00 00 00 00</a></p>
+        </address>
+      </section>
+    </div>
+    <div class="border-t border-stone-800 py-4 text-center text-xs">
+      <p>&copy; 2026 Maison Rive. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
