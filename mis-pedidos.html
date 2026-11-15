@@ -21,7 +21,7 @@
   <header class="border-b border-stone-200 bg-white">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
       <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
-        Maison <span class="font-light">Atelier</span>
+        Maison <span class="font-light">Rive</span>
       </a>
 
       <form action="catalogo.html" method="get" role="search" class="order-last w-full md:order-none md:mx-6 md:flex-1">
@@ -71,11 +71,16 @@
 
   <main id="contenido" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
     <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Mi cuenta</h1>
-    <p id="saludo-cuenta" class="mt-2 text-stone-600">Hola, Laura. Aquí tienes el resumen de tu actividad.</p>
-    <p class="mt-4 rounded-md bg-amber-50 p-3 text-sm text-amber-900" role="note">Versión de prueba: no hay base de datos y no se guarda ningún dato. Puedes entrar con cualquier correo y contraseña.</p>
-      <p class="mt-4 rounded-md bg-amber-50 p-3 text-sm text-stone-700" role="note">Versión de prueba: el perfil demo se guarda solo en este navegador. No hay base de datos y nunca guardamos tu contraseña.</p>
+    <p id="saludo-cuenta" class="mt-2 text-stone-600">Resumen de tu actividad de demostración.</p>
+    <p class="mt-4 rounded-md bg-amber-50 p-3 text-sm text-amber-900" role="note">Todo lo que aparece aquí es una demostración: no hay servidor ni base de datos. La sesión y los perfiles demo se guardan localmente en este navegador; las contraseñas no se almacenan. Cerrar sesión elimina la sesión activa, pero conserva los perfiles demo registrados. Esta protección de interfaz no es seguridad real.</p>
 
-    <div class="mt-8 grid gap-8 lg:grid-cols-[14rem_1fr] lg:items-start">
+    <section id="cuenta-sin-sesion" class="mt-8 rounded-xl border border-stone-200 bg-white px-6 py-10 text-center">
+      <h2 class="text-xl font-semibold">Inicia sesión para ver la demo de tu cuenta</h2>
+      <p class="mt-2 text-sm text-stone-600">Los pedidos de ejemplo y los datos de perfil no se muestran hasta que haya una sesión demo activa.</p>
+      <a href="login.html" class="mt-5 inline-flex min-h-11 items-center rounded-full bg-stone-900 px-5 text-sm font-semibold text-white hover:bg-stone-700">Ir a iniciar sesión</a>
+    </section>
+
+    <div id="contenido-cuenta" hidden style="display: none" class="mt-8 hidden gap-8 lg:grid lg:grid-cols-[14rem_1fr] lg:items-start">
       <nav aria-label="Menú de cuenta" class="rounded-xl border border-stone-200 bg-white p-2">
         <ul class="flex gap-1 overflow-x-auto lg:flex-col">
           <li><a href="mis-pedidos.html" aria-current="page" class="flex min-h-11 items-center whitespace-nowrap rounded-md bg-stone-900 px-4 text-sm font-semibold text-white">Mis pedidos</a></li>
@@ -113,7 +118,7 @@
             <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 p-4 sm:p-6">
               <p class="text-sm text-stone-600">Envío: Gratis</p>
               <p class="font-semibold">Total (IVA incluido): 217,78&nbsp;€</p>
-              <a href="#" class="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-5 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">Ver detalle<span class="sr-only"> del pedido MA-2026-0142</span></a>
+              <button type="button" disabled title="El detalle del pedido no está disponible en esta demo" class="inline-flex min-h-11 cursor-not-allowed items-center rounded-full border border-stone-300 px-5 text-sm font-medium opacity-50">Ver detalle<span class="sr-only"> del pedido MA-2026-0142</span></button>
             </footer>
           </article>
         </li>
@@ -141,7 +146,7 @@
             <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 p-4 sm:p-6">
               <p class="text-sm text-stone-600">Envío: Gratis</p>
               <p class="font-semibold">Total (IVA incluido): 145,07&nbsp;€</p>
-              <a href="#" class="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-5 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">Ver detalle<span class="sr-only"> del pedido MA-2026-0121</span></a>
+              <button type="button" disabled title="El detalle del pedido no está disponible en esta demo" class="inline-flex min-h-11 cursor-not-allowed items-center rounded-full border border-stone-300 px-5 text-sm font-medium opacity-50">Ver detalle<span class="sr-only"> del pedido MA-2026-0121</span></button>
             </footer>
           </article>
         </li>
@@ -164,7 +169,7 @@
             <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 p-4 sm:p-6">
               <p class="text-sm text-stone-600">Envío: 4,95&nbsp;€</p>
               <p class="font-semibold">Total (IVA incluido): 60,49&nbsp;€</p>
-              <a href="#" class="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-5 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">Ver detalle<span class="sr-only"> del pedido MA-2026-0098</span></a>
+              <button type="button" disabled title="El detalle del pedido no está disponible en esta demo" class="inline-flex min-h-11 cursor-not-allowed items-center rounded-full border border-stone-300 px-5 text-sm font-medium opacity-50">Ver detalle<span class="sr-only"> del pedido MA-2026-0098</span></button>
             </footer>
           </article>
         </li>
@@ -200,7 +205,7 @@
   <footer class="mt-8 bg-stone-900 text-stone-300">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       <div>
-        <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
+        <p class="text-lg font-semibold text-white">Maison <span class="font-light">Rive</span></p>
         <p class="mt-3 text-sm">Prendas esenciales diseñadas en París para acompañarte temporada tras temporada.</p>
       </div>
 

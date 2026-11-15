@@ -2,6 +2,7 @@
 const CLAVE = "carrito-maison";
 const CLAVE_CUENTA = "maison-cuenta-activa";
 const CLAVE_CUENTAS = "maison-cuentas-demo";
+const CLAVE_CUENTA_RECORDADA = "maison-cuenta-recordada-demo";
 const IVA = 0.21;
 const ENVIO_GRATIS_DESDE = 10000;
 const ENVIO = 495;
@@ -16,23 +17,65 @@ const cuentaLaura = {
 };
 
 function leerJSON(storage, clave, alternativa) {
-  try {
-    return JSON.parse(storage.getItem(clave)) ?? alternativa;
-  } catch {
-    return alternativa;
-  }
+  return JSON.parse(storage.getItem(clave)) ?? alternativa;
 }
 
 function leerCuentaActiva() {
-  return leerJSON(sessionStorage, CLAVE_CUENTA, null);
+  try {
+    return leerJSON(sessionStorage, CLAVE_CUENTA, null)
+      ?? leerJSON(localStorage, CLAVE_CUENTA_RECORDADA, null);
+  } catch {
+    return null;
+  }
 }
 
-function guardarCuentaActiva(cuenta) {
-  sessionStorage.setItem(CLAVE_CUENTA, JSON.stringify(cuenta));
+function guardarCuentaActiva(cuenta, recordar) {
+  try {
+    if (recordar) {
+      localStorage.setItem(CLAVE_CUENTA_RECORDADA, JSON.stringify(cuenta));
+    }
+    sessionStorage.setItem(CLAVE_CUENTA, JSON.stringify(cuenta));
+    if (!recordar) {
+      try {
+        localStorage.removeItem(CLAVE_CUENTA_RECORDADA);
+      } catch {
+        // La sesión de esta pestaña puede funcionar aunque localStorage esté bloqueado.
+      }
+    }
+    return true;
+  } catch {
+    try {
+      sessionStorage.removeItem(CLAVE_CUENTA);
+    } catch {
+      // El navegador puede bloquear también la limpieza del almacenamiento.
+    }
+    if (recordar) {
+      try {
+        localStorage.removeItem(CLAVE_CUENTA_RECORDADA);
+      } catch {
+        // No se puede revertir el almacenamiento si el navegador lo bloquea.
+      }
+    }
+    return false;
+  }
 }
 
 function renderCuenta() {
-  const cuenta = leerCuentaActiva();
+  const cuentaGuardada = leerCuentaActiva();
+  const cuenta = cuentaGuardada
+    && typeof cuentaGuardada.nombre === "string"
+    && typeof cuentaGuardada.email === "string"
+    ? cuentaGuardada
+    : null;
+  const sinSesion = document.getElementById("cuenta-sin-sesion");
+  const contenido = document.getElementById("contenido-cuenta");
+  if (sinSesion && contenido) {
+    sinSesion.hidden = Boolean(cuenta);
+    contenido.hidden = !cuenta;
+    sinSesion.classList.toggle("hidden", Boolean(cuenta));
+    contenido.classList.toggle("hidden", !cuenta);
+    contenido.style.display = cuenta ? "" : "none";
+  }
   if (!cuenta) return;
 
   const nombre = cuenta.nombre.trim().split(/\s+/)[0];
@@ -79,13 +122,23 @@ function initCuenta() {
       event.preventDefault();
       const email = document.getElementById("login-email").value.trim().toLowerCase();
       const mensaje = document.getElementById("login-error");
+      const recordar = document.getElementById("login-recordarme").checked;
       let cuenta;
 
       if (email === cuentaLaura.email) {
         cuenta = cuentaLaura;
       } else {
-        const cuentas = leerJSON(localStorage, CLAVE_CUENTAS, []);
-        cuenta = cuentas.find((item) => item.email.toLowerCase() === email);
+        try {
+          const guardadas = leerJSON(localStorage, CLAVE_CUENTAS, []);
+          const cuentas = Array.isArray(guardadas)
+            ? guardadas.filter((item) => item && typeof item.email === "string")
+            : [];
+          cuenta = cuentas.find((item) => item.email.toLowerCase() === email);
+        } catch {
+          mensaje.textContent = "No se pudo acceder al almacenamiento local de esta demo. Comprueba la configuración del navegador e inténtalo de nuevo.";
+          mensaje.classList.remove("hidden");
+          return;
+        }
       }
 
       if (!cuenta) {
@@ -94,7 +147,11 @@ function initCuenta() {
         return;
       }
 
-      guardarCuentaActiva(cuenta);
+      if (!guardarCuentaActiva(cuenta, recordar)) {
+        mensaje.textContent = "El navegador no permite guardar la sesión demo. Revisa su configuración de almacenamiento e inténtalo de nuevo.";
+        mensaje.classList.remove("hidden");
+        return;
+      }
       window.location.href = "mis-pedidos.html";
     });
   });
@@ -116,7 +173,17 @@ function initCuenta() {
         return;
       }
 
-      const cuentas = leerJSON(localStorage, CLAVE_CUENTAS, []);
+      let cuentas;
+      try {
+        const guardadas = leerJSON(localStorage, CLAVE_CUENTAS, []);
+        cuentas = Array.isArray(guardadas)
+          ? guardadas.filter((item) => item && typeof item.email === "string")
+          : [];
+      } catch {
+        mensaje.textContent = "No se pudo acceder al almacenamiento local de esta demo. Comprueba la configuración del navegador e inténtalo de nuevo.";
+        mensaje.classList.remove("hidden");
+        return;
+      }
       if (email === cuentaLaura.email || cuentas.some((item) => item.email.toLowerCase() === email)) {
         mensaje.textContent = "Ya existe una cuenta con ese correo. Inicia sesión.";
         mensaje.classList.remove("hidden");
@@ -125,15 +192,42 @@ function initCuenta() {
       }
 
       const cuenta = { nombre: `${nombre} ${apellidos}`.trim(), email, pedidosDemo: false };
-      localStorage.setItem(CLAVE_CUENTAS, JSON.stringify([...cuentas, cuenta]));
-      guardarCuentaActiva(cuenta);
+      let cuentasGuardadas = false;
+      try {
+        localStorage.setItem(CLAVE_CUENTAS, JSON.stringify([...cuentas, cuenta]));
+        cuentasGuardadas = true;
+      } catch {
+        // Aunque no se pueda persistir, se puede mostrar la cuenta en esta sesión temporal.
+      }
+      if (!guardarCuentaActiva(cuenta, false)) {
+        mensaje.textContent = cuentasGuardadas
+          ? "La cuenta demo se guardó, pero no se pudo iniciar la sesión en este navegador. Vuelve a iniciar sesión después de revisar su almacenamiento."
+          : "El navegador bloquea el almacenamiento local, así que no se pudo guardar la cuenta ni iniciar la sesión demo.";
+        mensaje.classList.remove("hidden");
+        return;
+      }
+      if (!cuentasGuardadas) {
+        console.info("La cuenta de demostración solo estará disponible durante esta sesión.");
+      }
       window.location.href = "mis-pedidos.html";
     });
   });
 
   document.addEventListener("click", (event) => {
-    if (!event.target.closest("[data-cerrar-sesion]")) return;
-    sessionStorage.removeItem(CLAVE_CUENTA);
+    const enlace = event.target.closest("[data-cerrar-sesion]");
+    if (!enlace) return;
+    event.preventDefault();
+    try {
+      sessionStorage.removeItem(CLAVE_CUENTA);
+    } catch {
+      // La demo sigue navegando aunque el navegador bloquee el almacenamiento.
+    }
+    try {
+      localStorage.removeItem(CLAVE_CUENTA_RECORDADA);
+    } catch {
+      // Los perfiles demo se conservan; si se bloquea el almacenamiento, no se puede limpiar la sesión recordada.
+    }
+    window.location.href = enlace.href;
   });
 }
 
