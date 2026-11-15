@@ -432,12 +432,36 @@ function initGalerias() {
   });
 }
 
+function initVistaProducto() {
+  const vistas = [...document.querySelectorAll(".product-view")];
+  if (!vistas.length) return;
+
+  const predeterminada = vistas.find((vista) => vista.classList.contains("product-view-default")) ?? vistas[0];
+  const mostrarVista = () => {
+    let id = "";
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      // Un fragmento mal codificado cae a la vista predeterminada.
+    }
+
+    const seleccionada = vistas.find((vista) => vista.id === id) ?? predeterminada;
+    vistas.forEach((vista) => {
+      vista.classList.toggle("is-active", vista === seleccionada);
+    });
+  };
+
+  mostrarVista();
+  window.addEventListener("hashchange", mostrarVista);
+}
+
 initCatalogo();
+initVistaProducto();
 initGalerias();
 renderCuenta();
 initCuenta();
 const guardadoInicial = leerCarrito();
-if (guardadoInicial) pintarInsignia(guardadoInicial);
+pintarInsignia(guardadoInicial ?? []);
 initCarrito();
 initCheckout();
 initPagos();
