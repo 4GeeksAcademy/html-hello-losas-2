@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Finalizar compra | Maison Atelier</title>
-  <meta name="description" content="Completa tu pedido en Maison Atelier en tres pasos: datos personales, dirección de entrega y pago con tarjeta.">
+  <title>Finalizar compra | Maison Rive</title>
+  <meta name="description" content="Completa tu pedido en Maison Rive en tres pasos: datos personales, dirección de entrega y pago con tarjeta.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1c1917">
   <link rel="canonical" href="https://www.example.com/checkout.html">
@@ -31,9 +31,9 @@
   </a>
 
   <!-- Navbar (reutilizable en todas las vistas) -->
-  <header class="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
+  <header class="border-b border-stone-200 bg-white">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
-      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Atelier, ir al inicio">
+      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
         Maison <span class="font-light">Atelier</span>
       </a>
 
@@ -55,10 +55,10 @@
             <span class="hidden sm:inline">Mi cuenta</span>
             <span class="sr-only sm:hidden">Mi cuenta</span>
           </summary>
-          <ul class="absolute right-0 mt-2 w-48 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
+          <ul class="absolute right-0 z-50 mt-2 w-52 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
+            <li><a href="login.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
+            <li><a href="registro.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
+            <li><a href="mis-pedidos.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
           </ul>
         </details>
 
@@ -66,7 +66,7 @@
           <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
           <span class="hidden sm:inline">Carrito</span>
           <span class="sr-only sm:hidden">Carrito</span>
-          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" aria-label="3 productos en el carrito">3</span>
+          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="3 productos en el carrito">3</span>
         </a>
       </nav>
     </div>
@@ -95,34 +95,39 @@
 
     <h1 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Finalizar compra</h1>
 
-    <!-- Indicador de pasos -->
-    <ol aria-label="Pasos del pago" class="mt-6 grid grid-cols-3 gap-2 text-center text-xs sm:text-sm">
-      <li class="rounded-md bg-stone-900 px-2 py-2 font-medium text-white"><a href="#paso-1" class="block">1. Datos personales</a></li>
-      <li class="rounded-md bg-stone-900 px-2 py-2 font-medium text-white"><a href="#paso-2" class="block">2. Dirección de entrega</a></li>
-      <li class="rounded-md bg-stone-900 px-2 py-2 font-medium text-white"><a href="#paso-3" class="block">3. Pago con tarjeta</a></li>
-    </ol>
+    <!-- Indicador de pasos de compra -->
+    <nav aria-label="Pasos de compra" class="mt-6">
+      <p class="text-sm font-semibold">Paso 2 de 3: Datos, entrega y pago</p>
+      <ol class="mt-3 grid grid-cols-3 gap-2 text-center text-xs sm:text-sm">
+        <li class="rounded-md border border-stone-300 bg-white px-2 py-2 text-stone-600"><a href="carrito.html" class="block underline underline-offset-4"><span aria-hidden="true">✓ </span>1 · Carrito<span class="sr-only"> (completado)</span></a></li>
+        <li aria-current="step" class="rounded-md bg-stone-900 px-2 py-2 font-semibold text-white"><span aria-hidden="true">2 · </span>Datos y entrega</li>
+        <li class="rounded-md border border-stone-300 bg-white px-2 py-2 text-stone-600"><span aria-hidden="true">3 · </span>Pago</li>
+      </ol>
+    </nav>
+
+    <p class="mt-6 text-sm text-stone-600"><span aria-hidden="true" class="text-red-700">*</span> Campo obligatorio</p>
 
     <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-start">
       <!-- Prototipo: los campos no llevan "name" para que no se envíe ningún dato personal ni de tarjeta -->
-      <form action="index.html" method="get" class="space-y-8">
+      <form action="mis-pedidos.html" method="get" class="space-y-8">
         <!-- Paso 1 -->
         <fieldset id="paso-1" class="scroll-mt-44 rounded-xl border border-stone-200 bg-white p-6">
-          <legend class="px-2 text-lg font-semibold">Paso 1 de 3: Datos personales</legend>
+          <legend class="px-2 text-lg font-semibold">1. Datos personales</legend>
           <div class="mt-2 grid gap-4 sm:grid-cols-2">
             <div>
-              <label for="nombre" class="block text-sm font-medium">Nombre</label>
+              <label for="nombre" class="block text-sm font-medium">Nombre <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="nombre" type="text" autocomplete="given-name" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="apellidos" class="block text-sm font-medium">Apellidos</label>
+              <label for="apellidos" class="block text-sm font-medium">Apellidos <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="apellidos" type="text" autocomplete="family-name" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium">Correo electrónico</label>
+              <label for="email" class="block text-sm font-medium">Correo electrónico <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="email" type="email" autocomplete="email" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="telefono" class="block text-sm font-medium">Teléfono</label>
+              <label for="telefono" class="block text-sm font-medium">Teléfono <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="telefono" type="tel" autocomplete="tel" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
           </div>
@@ -130,22 +135,22 @@
 
         <!-- Paso 2 -->
         <fieldset id="paso-2" class="scroll-mt-44 rounded-xl border border-stone-200 bg-white p-6">
-          <legend class="px-2 text-lg font-semibold">Paso 2 de 3: Dirección de entrega</legend>
+          <legend class="px-2 text-lg font-semibold">2. Dirección de entrega</legend>
           <div class="mt-2 grid gap-4 sm:grid-cols-2">
             <div class="sm:col-span-2">
-              <label for="direccion" class="block text-sm font-medium">Dirección</label>
+              <label for="direccion" class="block text-sm font-medium">Dirección <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="direccion" type="text" autocomplete="street-address" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="ciudad" class="block text-sm font-medium">Ciudad</label>
+              <label for="ciudad" class="block text-sm font-medium">Ciudad <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="ciudad" type="text" autocomplete="address-level2" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="cp" class="block text-sm font-medium">Código postal</label>
+              <label for="cp" class="block text-sm font-medium">Código postal <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="cp" type="text" inputmode="numeric" autocomplete="postal-code" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div class="sm:col-span-2">
-              <label for="pais" class="block text-sm font-medium">País</label>
+              <label for="pais" class="block text-sm font-medium">País <span aria-hidden="true" class="text-red-700">*</span></label>
               <select id="pais" autocomplete="country" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 bg-white px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
                 <option value="">Selecciona un país</option>
                 <option>España</option>
@@ -160,22 +165,41 @@
 
         <!-- Paso 3 -->
         <fieldset id="paso-3" class="scroll-mt-44 rounded-xl border border-stone-200 bg-white p-6">
-          <legend class="px-2 text-lg font-semibold">Paso 3 de 3: Pago con tarjeta</legend>
-          <div class="mt-2 grid gap-4 sm:grid-cols-2">
+          <legend class="px-2 text-lg font-semibold">3. Método de pago</legend>
+          <div role="radiogroup" aria-label="Método de pago" class="mt-2 grid gap-3 sm:grid-cols-2">
+            <label class="block cursor-pointer">
+              <input type="radio" name="metodo-pago" value="tarjeta" checked class="peer sr-only">
+              <span class="pay-option"><svg aria-hidden="true" class="size-7 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"/></svg><span><span class="block font-semibold">Tarjeta</span><span class="block text-xs text-stone-600">Visa, Mastercard</span></span></span>
+            </label>
+            <label class="block cursor-pointer">
+              <input type="radio" name="metodo-pago" value="paypal" class="peer sr-only">
+              <span class="pay-option"><span aria-hidden="true" class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-700 text-sm font-bold text-white">P</span><span><span class="block font-semibold">PayPal</span><span class="block text-xs text-stone-600">Paga con tu cuenta</span></span></span>
+            </label>
+            <label class="block cursor-pointer">
+              <input type="radio" name="metodo-pago" value="bizum" class="peer sr-only">
+              <span class="pay-option"><span aria-hidden="true" class="flex size-7 shrink-0 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">B</span><span><span class="block font-semibold">Bizum</span><span class="block text-xs text-stone-600">Desde tu móvil</span></span></span>
+            </label>
+            <label class="block cursor-pointer">
+              <input type="radio" name="metodo-pago" value="transferencia" class="peer sr-only">
+              <span class="pay-option"><svg aria-hidden="true" class="size-7 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"/></svg><span><span class="block font-semibold">Transferencia</span><span class="block text-xs text-stone-600">Pedido en 1–2 días</span></span></span>
+            </label>
+          </div>
+
+          <div id="datos-tarjeta" class="mt-6 grid gap-4 sm:grid-cols-2">
             <div class="sm:col-span-2">
-              <label for="titular" class="block text-sm font-medium">Titular de la tarjeta</label>
+              <label for="titular" class="block text-sm font-medium">Titular de la tarjeta <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="titular" type="text" autocomplete="cc-name" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div class="sm:col-span-2">
-              <label for="tarjeta" class="block text-sm font-medium">Número de tarjeta</label>
+              <label for="tarjeta" class="block text-sm font-medium">Número de tarjeta <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="tarjeta" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" maxlength="19" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="caducidad" class="block text-sm font-medium">Caducidad (MM/AA)</label>
+              <label for="caducidad" class="block text-sm font-medium">Caducidad (MM/AA) <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="caducidad" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
             <div>
-              <label for="cvc" class="block text-sm font-medium">CVC</label>
+              <label for="cvc" class="block text-sm font-medium">CVC <span aria-hidden="true" class="text-red-700">*</span></label>
               <input id="cvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
             </div>
           </div>
@@ -184,7 +208,7 @@
         <div class="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
           <a href="carrito.html" class="text-sm underline underline-offset-4 hover:text-stone-600">&larr; Volver al carrito</a>
           <button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 text-base font-semibold text-white hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">
-            Pagar 397,73&nbsp;€
+            Pagar <span id="pagar-total">386,93&nbsp;€</span>
           </button>
         </div>
       </form>
@@ -192,27 +216,29 @@
       <!-- Resumen -->
       <aside aria-labelledby="resumen-titulo" class="rounded-xl border border-stone-200 bg-white p-6 lg:sticky lg:top-40">
         <h2 id="resumen-titulo" class="text-lg font-semibold">Resumen del pedido</h2>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li class="flex justify-between gap-4"><span>Camisa de lino Lyon × 1</span><span>59,90&nbsp;€</span></li>
-          <li class="flex justify-between gap-4"><span>Pantalón chino Marais × 2</span><span>149,80&nbsp;€</span></li>
-          <li class="flex justify-between gap-4"><span>Zapatillas de cuero Bastille × 1</span><span>119,00&nbsp;€</span></li>
+        <ul id="resumen-lineas" class="mt-4 space-y-2 text-sm">
+          <li class="flex items-center justify-between gap-3"><img src="assets/products/lin-lyon-1.webp" width="56" height="56" alt="" class="size-14 rounded-md object-cover"><span class="flex-1">Camisa de cuadros Lyon × 1</span><span class="shrink-0">29,99&nbsp;€</span></li>
+          <li class="flex items-center justify-between gap-3"><img src="assets/products/chino-marais-1.jpg" width="56" height="56" alt="" class="size-14 rounded-md object-cover"><span class="flex-1">Chino Marais × 2</span><span class="shrink-0">139,80&nbsp;€</span></li>
+          <li class="flex items-center justify-between gap-3"><img src="assets/products/sneaker-bastille-1.jpg" width="56" height="56" alt="" class="size-14 rounded-md object-cover"><span class="flex-1">Sneaker de lona burdeos Bastille × 1</span><span class="shrink-0">149,99&nbsp;€</span></li>
         </ul>
         <dl class="mt-4 space-y-2 border-t border-stone-200 pt-4 text-sm">
-          <div class="flex justify-between"><dt>Subtotal</dt><dd>328,70&nbsp;€</dd></div>
-          <div class="flex justify-between"><dt>Impuestos (IVA 21%)</dt><dd>69,03&nbsp;€</dd></div>
-          <div class="flex justify-between"><dt>Envío</dt><dd>Gratis</dd></div>
-          <div class="flex justify-between border-t border-stone-200 pt-2 text-base font-semibold"><dt>Total</dt><dd>397,73&nbsp;€</dd></div>
+          <div class="flex justify-between"><dt>Subtotal</dt><dd id="resumen-subtotal">319,78&nbsp;€</dd></div>
+          <div class="flex justify-between"><dt>Impuestos (IVA 21%)</dt><dd id="resumen-iva">67,15&nbsp;€</dd></div>
+          <div class="flex justify-between"><dt>Envío</dt><dd id="resumen-envio">Gratis</dd></div>
+          <div class="flex justify-between border-t border-stone-200 pt-2 text-base font-semibold"><dt>Total</dt><dd id="resumen-total">386,93&nbsp;€</dd></div>
         </dl>
       </aside>
     </div>
   </main>
+
+  <script src="tienda.js" defer></script>
 
   <!-- Footer (reutilizable en todas las vistas) -->
   <footer class="mt-8 bg-stone-900 text-stone-300">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       <div>
         <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
-        <p class="mt-3 text-sm">Moda francesa atemporal, diseñada en París.</p>
+        <p class="mt-3 text-sm">Prendas esenciales diseñadas en París para acompañarte temporada tras temporada.</p>
       </div>
 
       <nav aria-labelledby="footer-categorias">
@@ -244,7 +270,7 @@
       </section>
     </div>
     <div class="border-t border-stone-800 py-4 text-center text-xs">
-      <p>&copy; 2026 Maison Atelier. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Maison Rive. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>

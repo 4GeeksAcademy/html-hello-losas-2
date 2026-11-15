@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maison Atelier | Moda francesa online: camisas, pantalones, calzado y accesorios</title>
-  <meta name="description" content="Descubre la nueva colección de Maison Atelier, moda francesa atemporal. Camisas, pantalones, calzado y accesorios con envío a toda Europa.">
+  <title>Maison Rive | Moda francesa online: camisas, pantalones, calzado y accesorios</title>
+  <meta name="description" content="Descubre Maison Rive, marca francesa independiente con sede en París. Camisas, denim, calzado y accesorios de estilo mediterráneo.">
   <meta name="theme-color" content="#1c1917">
   <link rel="canonical" href="https://www.example.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Maison Atelier">
-  <meta property="og:title" content="Maison Atelier | Moda francesa online">
-  <meta property="og:description" content="Nueva colección de moda francesa atemporal. Camisas, pantalones, calzado y accesorios.">
+  <meta property="og:site_name" content="Maison Rive">
+  <meta property="og:title" content="Maison Rive | Moda francesa online">
+  <meta property="og:description" content="Marca francesa independiente con sede en París. Descubre la cápsula Ligne Côte de Maison Rive.">
   <meta property="og:url" content="https://www.example.com/">
-  <meta property="og:image" content="https://picsum.photos/seed/maison-hero/1200/630">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&auto=format&fit=crop&q=80">
   <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -26,9 +26,11 @@
       {
         "@type": "Organization",
         "@id": "https://www.example.com/#organization",
-        "name": "Maison Atelier",
+        "name": "Maison Rive",
+        "description": "Marca francesa independiente de ropa y accesorios con sede en París.",
         "url": "https://www.example.com/",
         "logo": "https://www.example.com/logo.png",
+        "foundingLocation": { "@type": "Place", "name": "París, Francia" },
         "address": { "@type": "PostalAddress", "addressLocality": "París", "addressCountry": "FR" },
         "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": "hola@example.com", "availableLanguage": ["es", "fr", "en"] }
       },
@@ -36,7 +38,7 @@
         "@type": "WebSite",
         "@id": "https://www.example.com/#website",
         "url": "https://www.example.com/",
-        "name": "Maison Atelier",
+        "name": "Maison Rive",
         "inLanguage": "es",
         "publisher": { "@id": "https://www.example.com/#organization" },
         "potentialAction": {
@@ -49,10 +51,10 @@
         "@type": "ItemList",
         "name": "Nuevos lanzamientos",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "url": "https://www.example.com/producto.html", "name": "Camisa de lino Lyon" },
-          { "@type": "ListItem", "position": 2, "url": "https://www.example.com/producto.html", "name": "Pantalón chino Marais" },
-          { "@type": "ListItem", "position": 3, "url": "https://www.example.com/producto.html", "name": "Zapatillas de cuero Bastille" },
-          { "@type": "ListItem", "position": 4, "url": "https://www.example.com/producto.html", "name": "Bufanda de lana Seine" }
+            { "@type": "ListItem", "position": 1, "url": "https://www.example.com/producto.html#lin-lyon", "name": "Camisa de cuadros Lyon" },
+            { "@type": "ListItem", "position": 2, "url": "https://www.example.com/producto.html#chino-marais", "name": "Chino Marais" },
+            { "@type": "ListItem", "position": 3, "url": "https://www.example.com/producto.html#sneaker-bastille", "name": "Sneaker de lona burdeos Bastille" },
+            { "@type": "ListItem", "position": 4, "url": "https://www.example.com/producto.html#lunettes-rive", "name": "Gafas de sol Rive" }
         ]
       }
     ]
@@ -66,9 +68,9 @@
   </a>
 
   <!-- Navbar (reutilizable en todas las vistas) -->
-  <header class="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
+  <header class="border-b border-stone-200 bg-white">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
-      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Atelier, ir al inicio">
+      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
         Maison <span class="font-light">Atelier</span>
       </a>
 
@@ -90,10 +92,10 @@
             <span class="hidden sm:inline">Mi cuenta</span>
             <span class="sr-only sm:hidden">Mi cuenta</span>
           </summary>
-          <ul class="absolute right-0 mt-2 w-48 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
+          <ul class="absolute right-0 z-50 mt-2 w-52 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
+            <li><a href="login.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
+            <li><a href="registro.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
+            <li><a href="mis-pedidos.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
           </ul>
         </details>
 
@@ -101,7 +103,7 @@
           <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
           <span class="hidden sm:inline">Carrito</span>
           <span class="sr-only sm:hidden">Carrito</span>
-          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" aria-label="3 productos en el carrito">3</span>
+          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="3 productos en el carrito">3</span>
         </a>
       </nav>
     </div>
@@ -122,12 +124,12 @@
     <section aria-labelledby="hero-titulo" class="bg-stone-900 text-white">
       <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-20 lg:px-8">
         <div>
-          <p class="text-sm font-medium uppercase tracking-widest text-amber-300">Colección Primavera-Verano</p>
+          <p class="text-sm font-medium uppercase tracking-widest text-amber-300">Ligne Côte · Été 2026</p>
           <h1 id="hero-titulo" class="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            Elegancia francesa para cada día
+            Un vestuario ligero, hecho para durar
           </h1>
           <p class="mt-4 max-w-prose text-base text-stone-300 sm:text-lg">
-            Prendas atemporales, tejidos naturales y cortes cuidados, diseñados en París para durar temporada tras temporada.
+            Maison Rive es una marca francesa independiente con sede en París. Lino lavado, algodón con textura y denim de carácter para un estilo mediterráneo sin esfuerzo.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="catalogo.html" class="inline-flex min-h-11 items-center rounded-full bg-white px-6 text-sm font-semibold text-stone-900 hover:bg-stone-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
@@ -138,8 +140,8 @@
             </a>
           </div>
         </div>
-        <img src="https://picsum.photos/seed/maison-hero/800/600" width="800" height="600"
-          alt="Modelo vistiendo la colección de primavera-verano de Maison Atelier"
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&auto=format&fit=crop&q=80" width="800" height="600"
+          alt="Editorial de moda de Maison Rive en una calle histórica europea"
           class="aspect-4/3 w-full rounded-2xl object-cover">
       </div>
     </section>
@@ -154,41 +156,41 @@
       <ul class="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
         <li>
           <article class="group">
-            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-              <img src="https://picsum.photos/seed/camisa-lyon/400/500" width="400" height="500" loading="lazy" alt="Camisa de lino Lyon en color crudo" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-              <h3 class="mt-3 text-sm font-medium sm:text-base">Camisa de lino Lyon</h3>
+            <a href="producto.html#lin-lyon" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="assets/products/lin-lyon-1.webp" width="400" height="500" loading="lazy" alt="Camisa de cuadros Lyon, vista frontal" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Camisa de cuadros Lyon</h3>
               <p class="text-sm text-stone-600">Camisas</p>
-              <p class="mt-1 font-semibold">59,90&nbsp;€</p>
+              <p class="mt-1 font-semibold">29,99&nbsp;€</p>
             </a>
           </article>
         </li>
         <li>
           <article class="group">
-            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-              <img src="https://picsum.photos/seed/chino-marais/400/500" width="400" height="500" loading="lazy" alt="Pantalón chino Marais en color arena" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-              <h3 class="mt-3 text-sm font-medium sm:text-base">Pantalón chino Marais</h3>
+            <a href="producto.html#chino-marais" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="assets/products/chino-marais-1.jpg" width="400" height="500" loading="lazy" alt="Chino color arena Marais, visto en una persona" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Chino Marais</h3>
               <p class="text-sm text-stone-600">Pantalones</p>
-              <p class="mt-1 font-semibold">74,90&nbsp;€</p>
+              <p class="mt-1 font-semibold">69,90&nbsp;€</p>
             </a>
           </article>
         </li>
         <li>
           <article class="group">
-            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-              <img src="https://picsum.photos/seed/zapatilla-bastille/400/500" width="400" height="500" loading="lazy" alt="Zapatillas de cuero Bastille en blanco" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-              <h3 class="mt-3 text-sm font-medium sm:text-base">Zapatillas de cuero Bastille</h3>
+            <a href="producto.html#sneaker-bastille" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="assets/products/sneaker-bastille-1.jpg" width="400" height="500" loading="lazy" alt="Sneaker de lona burdeos Bastille, vista frontal" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Sneaker de lona burdeos Bastille</h3>
               <p class="text-sm text-stone-600">Calzado</p>
-              <p class="mt-1 font-semibold">119,00&nbsp;€</p>
+              <p class="mt-1 font-semibold">149,99&nbsp;€</p>
             </a>
           </article>
         </li>
         <li>
           <article class="group">
-            <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-              <img src="https://picsum.photos/seed/bufanda-seine/400/500" width="400" height="500" loading="lazy" alt="Bufanda de lana Seine en gris perla" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-              <h3 class="mt-3 text-sm font-medium sm:text-base">Bufanda de lana Seine</h3>
+            <a href="producto.html#lunettes-rive" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+              <img src="assets/products/lunettes-rive-1.webp" width="400" height="500" loading="lazy" alt="Gafas de sol Rive con montura clásica, vista frontal" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+              <h3 class="mt-3 text-sm font-medium sm:text-base">Gafas de sol Rive</h3>
               <p class="text-sm text-stone-600">Accesorios</p>
-              <p class="mt-1 font-semibold">39,90&nbsp;€</p>
+              <p class="mt-1 font-semibold">29,99&nbsp;€</p>
             </a>
           </article>
         </li>
@@ -206,18 +208,18 @@
         <ul class="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           <li>
             <article class="group">
-              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-                <img src="https://picsum.photos/seed/polo-nice/400/500" width="400" height="500" loading="lazy" alt="Polo piqué Nice en azul marino" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-                <h3 class="mt-3 text-sm font-medium sm:text-base">Polo piqué Nice</h3>
+                <a href="producto.html#tee-cannes" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="assets/products/tee-cannes-1.jpg" width="400" height="500" loading="lazy" alt="Camiseta blanca Cannes, vista frontal" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Camiseta blanca Cannes</h3>
                 <p class="text-sm text-stone-600">Camisas</p>
-                <p class="mt-1 font-semibold">45,00&nbsp;€</p>
+                <p class="mt-1 font-semibold">24,99&nbsp;€</p>
               </a>
             </article>
           </li>
           <li>
             <article class="group">
-              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-                <img src="https://picsum.photos/seed/vaquero-paris/400/500" width="400" height="500" loading="lazy" alt="Vaquero recto Paris en denim oscuro" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <a href="producto.html#jean-paris" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="assets/products/jean-paris-1.jpg" width="400" height="500" loading="lazy" alt="Vaqueros de denim azul y negro doblados, vista superior" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
                 <h3 class="mt-3 text-sm font-medium sm:text-base">Vaquero recto Paris</h3>
                 <p class="text-sm text-stone-600">Pantalones</p>
                 <p class="mt-1 font-semibold">89,90&nbsp;€</p>
@@ -226,21 +228,21 @@
           </li>
           <li>
             <article class="group">
-              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-                <img src="https://picsum.photos/seed/mocasin-lille/400/500" width="400" height="500" loading="lazy" alt="Mocasines Lille en cuero marrón" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-                <h3 class="mt-3 text-sm font-medium sm:text-base">Mocasines Lille</h3>
+                <a href="producto.html#alpargata-cassis" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="assets/products/alpargata-cassis-1.jpg" width="400" height="500" loading="lazy" alt="Alpargata oliva Cassis, vista frontal" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Alpargata oliva Cassis</h3>
                 <p class="text-sm text-stone-600">Calzado</p>
-                <p class="mt-1 font-semibold">129,00&nbsp;€</p>
+                <p class="mt-1 font-semibold">89,99&nbsp;€</p>
               </a>
             </article>
           </li>
           <li>
             <article class="group">
-              <a href="producto.html" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
-                <img src="https://picsum.photos/seed/cinturon-orleans/400/500" width="400" height="500" loading="lazy" alt="Cinturón de cuero Orléans en negro" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
-                <h3 class="mt-3 text-sm font-medium sm:text-base">Cinturón Orléans</h3>
+                <a href="producto.html#monture-sete" class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900">
+                <img src="assets/products/monture-sete-1.webp" width="400" height="500" loading="lazy" alt="Gafas de sol doradas Sète, vista frontal" class="aspect-4/5 w-full rounded-lg object-cover transition group-hover:opacity-90">
+                <h3 class="mt-3 text-sm font-medium sm:text-base">Gafas de sol doradas Sète</h3>
                 <p class="text-sm text-stone-600">Accesorios</p>
-                <p class="mt-1 font-semibold">34,90&nbsp;€</p>
+                <p class="mt-1 font-semibold">24,99&nbsp;€</p>
               </a>
             </article>
           </li>
@@ -249,12 +251,14 @@
     </section>
   </main>
 
+  <script src="tienda.js" defer></script>
+
   <!-- Footer (reutilizable en todas las vistas) -->
   <footer class="bg-stone-900 text-stone-300">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       <div>
         <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
-        <p class="mt-3 text-sm">Moda francesa atemporal, diseñada en París.</p>
+        <p class="mt-3 text-sm">Prendas esenciales diseñadas en París para acompañarte temporada tras temporada.</p>
       </div>
 
       <nav aria-labelledby="footer-categorias">
@@ -286,7 +290,7 @@
       </section>
     </div>
     <div class="border-t border-stone-800 py-4 text-center text-xs">
-      <p>&copy; 2026 Maison Atelier. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Maison Rive. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>

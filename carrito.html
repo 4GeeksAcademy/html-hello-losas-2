@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Carrito de compra | Maison Atelier</title>
-  <meta name="description" content="Revisa los productos de tu carrito en Maison Atelier, comprueba el total con impuestos y continúa con la compra.">
+  <title>Carrito de compra | Maison Rive</title>
+  <meta name="description" content="Revisa los productos de tu carrito en Maison Rive, comprueba el total con impuestos y continúa con la compra.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1c1917">
   <link rel="canonical" href="https://www.example.com/carrito.html">
@@ -30,9 +30,9 @@
   </a>
 
   <!-- Navbar (reutilizable en todas las vistas) -->
-  <header class="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
+  <header class="border-b border-stone-200 bg-white">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
-      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Atelier, ir al inicio">
+      <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
         Maison <span class="font-light">Atelier</span>
       </a>
 
@@ -54,10 +54,10 @@
             <span class="hidden sm:inline">Mi cuenta</span>
             <span class="sr-only sm:hidden">Mi cuenta</span>
           </summary>
-          <ul class="absolute right-0 mt-2 w-48 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
-            <li><a href="#" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
+          <ul class="absolute right-0 z-50 mt-2 w-52 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
+            <li><a href="login.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
+            <li><a href="registro.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
+            <li><a href="mis-pedidos.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
           </ul>
         </details>
 
@@ -65,7 +65,7 @@
           <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
           <span class="hidden sm:inline">Carrito</span>
           <span class="sr-only sm:hidden">Carrito</span>
-          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" aria-label="3 productos en el carrito">3</span>
+          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="3 productos en el carrito">3</span>
         </a>
       </nav>
     </div>
@@ -82,68 +82,78 @@
   </header>
 
   <main id="contenido" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Tu carrito</h1>
-    <p class="mt-2 text-stone-600">3 productos (4 unidades)</p>
+    <nav aria-label="Pasos de compra" class="mb-8">
+      <p class="text-sm font-semibold">Paso 1 de 3: Carrito</p>
+      <ol class="mt-3 grid grid-cols-3 gap-2 text-center text-xs sm:text-sm">
+        <li aria-current="step" class="rounded-md bg-stone-900 px-2 py-2 font-semibold text-white"><span aria-hidden="true">1 · </span>Carrito</li>
+        <li class="rounded-md border border-stone-300 bg-white px-2 py-2 text-stone-600"><span aria-hidden="true">2 · </span>Datos y entrega</li>
+        <li class="rounded-md border border-stone-300 bg-white px-2 py-2 text-stone-600"><span aria-hidden="true">3 · </span>Pago</li>
+      </ol>
+    </nav>
 
-    <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-start">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Tu carrito</h1>
+    <p id="resumen-unidades" class="mt-2 text-stone-600">3 productos (4 unidades)</p>
+    <p id="carrito-vacio" class="mt-8 hidden rounded-xl border border-stone-200 bg-white p-8 text-center" role="status">Tu carrito está vacío. <a href="catalogo.html" class="underline underline-offset-4">Ver el catálogo</a></p>
+
+    <div id="carrito-contenido" class="mt-8 grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-start">
       <!-- Listado de productos -->
       <section aria-labelledby="lineas-titulo">
         <h2 id="lineas-titulo" class="sr-only">Productos en el carrito</h2>
         <ul class="divide-y divide-stone-200 rounded-xl border border-stone-200 bg-white">
-          <li class="grid grid-cols-[5rem_1fr] gap-4 p-4 sm:grid-cols-[6rem_1fr_auto] sm:p-6">
-            <img src="https://picsum.photos/seed/camisa-lyon/200/250" width="200" height="250" loading="lazy" alt="Camisa de lino Lyon en color crudo" class="aspect-4/5 w-full rounded-md object-cover">
+          <li data-linea data-id="lin-lyon" data-precio="2999" class="grid grid-cols-[5rem_1fr] gap-4 p-4 sm:grid-cols-[6rem_1fr_auto] sm:p-6">
+            <img src="assets/products/lin-lyon-1.webp" width="200" height="250" loading="lazy" alt="Camisa de cuadros Lyon" class="aspect-4/5 w-full rounded-md object-cover">
             <div>
-              <h3 class="font-medium"><a href="producto.html" class="hover:underline">Camisa de lino Lyon</a></h3>
-              <p class="mt-1 text-sm text-stone-600">Talla M · MA-CAM-001</p>
-              <p class="mt-1 text-sm">Precio unitario: <span class="font-medium">59,90&nbsp;€</span></p>
+              <h3 class="font-medium"><a href="producto.html#lin-lyon" class="hover:underline">Camisa de cuadros Lyon</a></h3>
+              <p class="mt-1 text-sm text-stone-600">Talla M · MA-CAM-083</p>
+              <p class="mt-1 text-sm">Precio unitario: <span class="font-medium">29,99&nbsp;€</span></p>
               <div class="mt-3 flex items-center gap-4">
                 <div>
                   <label for="cant-1" class="text-sm text-stone-600">Cantidad</label>
-                  <input id="cant-1" type="number" min="1" max="10" value="1" inputmode="numeric" class="ml-2 min-h-11 w-20 rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
+                  <input id="cant-1" data-cantidad type="number" min="1" max="10" value="1" inputmode="numeric" class="ml-2 min-h-11 w-20 rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
                 </div>
-                <button type="button" class="min-h-11 text-sm underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Eliminar<span class="sr-only"> Camisa de lino Lyon</span></button>
+                <button type="button" data-eliminar class="min-h-11 text-sm underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Eliminar<span class="sr-only"> Camisa de cuadros Lyon</span></button>
               </div>
             </div>
             <p class="col-span-2 text-right font-semibold sm:col-span-1 sm:col-start-3">
-              <span class="text-sm font-normal text-stone-600 sm:sr-only">Total: </span>59,90&nbsp;€
+              <span class="text-sm font-normal text-stone-600 sm:sr-only">Total: </span><span data-total-linea aria-live="polite">29,99&nbsp;€</span>
             </p>
           </li>
 
-          <li class="grid grid-cols-[5rem_1fr] gap-4 p-4 sm:grid-cols-[6rem_1fr_auto] sm:p-6">
-            <img src="https://picsum.photos/seed/chino-marais/200/250" width="200" height="250" loading="lazy" alt="Pantalón chino Marais en color arena" class="aspect-4/5 w-full rounded-md object-cover">
+          <li data-linea data-id="chino-marais" data-precio="6990" class="grid grid-cols-[5rem_1fr] gap-4 p-4 sm:grid-cols-[6rem_1fr_auto] sm:p-6">
+            <img src="assets/products/chino-marais-1.jpg" width="200" height="250" loading="lazy" alt="Chino sable Marais" class="aspect-4/5 w-full rounded-md object-cover">
             <div>
-              <h3 class="font-medium"><a href="producto.html" class="hover:underline">Pantalón chino Marais</a></h3>
-              <p class="mt-1 text-sm text-stone-600">Talla L · MA-PAN-002</p>
-              <p class="mt-1 text-sm">Precio unitario: <span class="font-medium">74,90&nbsp;€</span></p>
+              <h3 class="font-medium"><a href="producto.html#chino-marais" class="hover:underline">Chino Marais</a></h3>
+              <p class="mt-1 text-sm text-stone-600">Talla M · MA-PAN-006</p>
+              <p class="mt-1 text-sm">Precio unitario: <span class="font-medium">69,90&nbsp;€</span></p>
               <div class="mt-3 flex items-center gap-4">
                 <div>
                   <label for="cant-2" class="text-sm text-stone-600">Cantidad</label>
-                  <input id="cant-2" type="number" min="1" max="10" value="2" inputmode="numeric" class="ml-2 min-h-11 w-20 rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
+                  <input id="cant-2" data-cantidad type="number" min="1" max="10" value="2" inputmode="numeric" class="ml-2 min-h-11 w-20 rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
                 </div>
-                <button type="button" class="min-h-11 text-sm underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Eliminar<span class="sr-only"> Pantalón chino Marais</span></button>
+                <button type="button" data-eliminar class="min-h-11 text-sm underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Eliminar<span class="sr-only"> Chino Marais</span></button>
               </div>
             </div>
             <p class="col-span-2 text-right font-semibold sm:col-span-1 sm:col-start-3">
-              <span class="text-sm font-normal text-stone-600 sm:sr-only">Total: </span>149,80&nbsp;€
+              <span class="text-sm font-normal text-stone-600 sm:sr-only">Total: </span><span data-total-linea aria-live="polite">139,80&nbsp;€</span>
             </p>
           </li>
 
-          <li class="grid grid-cols-[5rem_1fr] gap-4 p-4 sm:grid-cols-[6rem_1fr_auto] sm:p-6">
-            <img src="https://picsum.photos/seed/zapatilla-bastille/200/250" width="200" height="250" loading="lazy" alt="Zapatillas de cuero Bastille en blanco" class="aspect-4/5 w-full rounded-md object-cover">
+          <li data-linea data-id="sneaker-bastille" data-precio="14999" class="grid grid-cols-[5rem_1fr] gap-4 p-4 sm:grid-cols-[6rem_1fr_auto] sm:p-6">
+            <img src="assets/products/sneaker-bastille-1.jpg" width="200" height="250" loading="lazy" alt="Sneaker de lona burdeos Bastille" class="aspect-4/5 w-full rounded-md object-cover">
             <div>
-              <h3 class="font-medium"><a href="producto.html" class="hover:underline">Zapatillas de cuero Bastille</a></h3>
-              <p class="mt-1 text-sm text-stone-600">Talla 42 · MA-CAL-003</p>
-              <p class="mt-1 text-sm">Precio unitario: <span class="font-medium">119,00&nbsp;€</span></p>
+              <h3 class="font-medium"><a href="producto.html#sneaker-bastille" class="hover:underline">Sneaker de lona burdeos Bastille</a></h3>
+              <p class="mt-1 text-sm text-stone-600">Talla 42 · MA-CAL-088</p>
+              <p class="mt-1 text-sm">Precio unitario: <span class="font-medium">149,99&nbsp;€</span></p>
               <div class="mt-3 flex items-center gap-4">
                 <div>
                   <label for="cant-3" class="text-sm text-stone-600">Cantidad</label>
-                  <input id="cant-3" type="number" min="1" max="10" value="1" inputmode="numeric" class="ml-2 min-h-11 w-20 rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
+                  <input id="cant-3" data-cantidad type="number" min="1" max="10" value="1" inputmode="numeric" class="ml-2 min-h-11 w-20 rounded-md border border-stone-300 px-3 text-sm focus:border-stone-900 focus:outline-2 focus:outline-stone-900/30">
                 </div>
-                <button type="button" class="min-h-11 text-sm underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Eliminar<span class="sr-only"> Zapatillas de cuero Bastille</span></button>
+                <button type="button" data-eliminar class="min-h-11 text-sm underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Eliminar<span class="sr-only"> Sneaker de lona burdeos Bastille</span></button>
               </div>
             </div>
             <p class="col-span-2 text-right font-semibold sm:col-span-1 sm:col-start-3">
-              <span class="text-sm font-normal text-stone-600 sm:sr-only">Total: </span>119,00&nbsp;€
+              <span class="text-sm font-normal text-stone-600 sm:sr-only">Total: </span><span data-total-linea aria-live="polite">149,99&nbsp;€</span>
             </p>
           </li>
         </ul>
@@ -154,12 +164,13 @@
       <!-- Resumen -->
       <aside aria-labelledby="resumen-titulo" class="rounded-xl border border-stone-200 bg-white p-6 lg:sticky lg:top-40">
         <h2 id="resumen-titulo" class="text-lg font-semibold">Resumen del pedido</h2>
-        <dl class="mt-4 space-y-3 text-sm">
-          <div class="flex justify-between"><dt>Subtotal</dt><dd>328,70&nbsp;€</dd></div>
-          <div class="flex justify-between"><dt>Impuestos (IVA 21%)</dt><dd>69,03&nbsp;€</dd></div>
-          <div class="flex justify-between"><dt>Envío</dt><dd>Gratis</dd></div>
-          <div class="flex justify-between border-t border-stone-200 pt-3 text-base font-semibold"><dt>Total</dt><dd>397,73&nbsp;€</dd></div>
+        <dl class="mt-4 space-y-3 text-sm" aria-live="polite">
+          <div class="flex justify-between"><dt>Subtotal</dt><dd id="resumen-subtotal">319,78&nbsp;€</dd></div>
+          <div class="flex justify-between"><dt>Impuestos (IVA 21%)</dt><dd id="resumen-iva">67,15&nbsp;€</dd></div>
+          <div class="flex justify-between"><dt>Envío</dt><dd id="resumen-envio">Gratis</dd></div>
+          <div class="flex justify-between border-t border-stone-200 pt-3 text-base font-semibold"><dt>Total</dt><dd id="resumen-total">386,93&nbsp;€</dd></div>
         </dl>
+        <p class="mt-3 text-xs text-stone-600">Envío gratuito a partir de 100&nbsp;€. Por debajo, el envío cuesta 4,95&nbsp;€.</p>
         <a href="checkout.html" class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-stone-900 px-8 text-base font-semibold text-white hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">
           Comprar
         </a>
@@ -167,12 +178,14 @@
     </div>
   </main>
 
+  <script src="tienda.js" defer></script>
+
   <!-- Footer (reutilizable en todas las vistas) -->
   <footer class="mt-8 bg-stone-900 text-stone-300">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       <div>
         <p class="text-lg font-semibold text-white">Maison <span class="font-light">Atelier</span></p>
-        <p class="mt-3 text-sm">Moda francesa atemporal, diseñada en París.</p>
+        <p class="mt-3 text-sm">Prendas esenciales diseñadas en París para acompañarte temporada tras temporada.</p>
       </div>
 
       <nav aria-labelledby="footer-categorias">
@@ -204,7 +217,7 @@
       </section>
     </div>
     <div class="border-t border-stone-800 py-4 text-center text-xs">
-      <p>&copy; 2026 Maison Atelier. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Maison Rive. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>
