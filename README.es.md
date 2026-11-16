@@ -1,44 +1,28 @@
-# HTML Hello
+# Maison Rive
 
-El boilerplate más básico para cualquier estudiante de 4Geeks Academy, empieza tu primer sitio web desde cero.
+Prototipo estático de tienda online para una marca de moda francesa ficticia. Está construido con HTML y CSS, usa Tailwind CSS v4 mediante su CDN de navegador y no incluye JavaScript de aplicación.
 
-> Tienes un video tutorial sobre [cómo usar esta plantilla para crear tu primer sitio web aquí](https://youtu.be/dfbDCMu_p-0).
+## Páginas
 
-## ¿Qué hacer a continuación?
+- `index.html`: página de inicio.
+- `catalogo.html`: catálogo de 20 productos con filtros CSS por categoría y talla.
+- `producto.html`: fichas de muestra, seleccionadas mediante el fragmento de la URL.
+- `carrito.html`: carrito ilustrativo.
+- `checkout.html`: proceso de compra ilustrativo.
 
-Crea un archivo `index.html` con [la estructura básica de HTML](https://4geeks.com/es/lesson/what-is-html-learn-html-es#estructura-de-pgina) y ve el resultado en vivo corriendo un servidor web utilizando el siguiente comando:
+Las páginas de producto, carrito y pago son demostraciones: no funcionan las cuentas, la búsqueda, la actualización del carrito, los pedidos ni los pagos. Los campos de pago y los controles de compra están desactivados. No introduzcas datos personales ni de pago.
 
-```bash
-$ pip3 install flask && python3 server.py
+## Ejecución local
+
+Se necesitan Python 3 y Flask:
+
+```sh
+python -m pip install flask
+python server.py
 ```
 
-- Puedes crear tantos archivos HTML cómo desees.
-- También puedes crear archivos CSS e importarlos en tu página web utilizando una etiqueta `<link>` ubicándola entre las etiquetas `<head></head>`, de la siguiente manera:
+Abre la dirección local que indique Flask (normalmente `http://127.0.0.1:5000`). El CDN de Tailwind necesita conexión a Internet.
 
-```html
-<head>
-  ...
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
-```
+## Filtros del catálogo
 
-- Si deseas usar Tailwind CSS, agrégalo de forma opcional mediante el CDN oficial de Tailwind CSS v4 dentro del mismo `<head>`:
-
-```html
-<head>
-  ...
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
-```
-
-
-## Agradecimientos
-
-Esta y otras plantillas son utilizadas para [aprender a programar](https://4geeksacademy.com/es/aprender-a-programar/aprender-a-programar-desde-cero) por parte de los alumnos de 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp). 
-
-Realizado por [Alejandro Sánchez](https://twitter.com/alesanchezr) y muchos otros contribuyentes. 
-
-Conoce más sobre nuestros [Cursos de Programación](https://4geeksacademy.com/es/curso-de-programacion-desde-cero/?lang=es) para convertirte en [Full Stack Developer](https://4geeksacademy.com/es/desarrollador-full-stack/desarrollador-full-stack), o nuestro [Data Science Bootcamp](https://4geeksacademy.com/es/coding-bootcamps/curso-datascience-machine-learning).
+El filtrado usa controles de radio HTML y selectores CSS `:has()`. Se requiere un navegador moderno compatible con `:has()`. Los filtros no se guardan en la URL ni muestran un contador dinámico de resultados.
