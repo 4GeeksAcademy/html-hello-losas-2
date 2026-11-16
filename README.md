@@ -18,17 +18,17 @@ $ pip3 install flask && python3 server.py
 ```html
 # Maison Rive
 
-Static e-commerce storefront prototype for a fictional French fashion brand. The site is built with HTML and CSS, uses Tailwind CSS v4 via its browser CDN, and does not include custom application JavaScript.
+E-commerce storefront prototype for a fictional French fashion brand. The site is built with HTML and CSS, uses Tailwind CSS v4 via its browser CDN, and has no custom client-side JavaScript. Flask handles the cart with standard HTML form submissions and server sessions.
 
 ## Pages
 
 - `index.html` — home page
 - `catalogo.html` — 20-item catalog with category- and size-specific CSS-only filters
 - `producto.html` — sample product details selected by URL fragment
-- `carrito.html` — illustrative cart
-- `checkout.html` — illustrative checkout
+- `carrito.html` — session cart with editable quantities, item removal, subtotal, VAT, and total
+- `checkout.html` — visual-only checkout whose summary reflects the current cart
 
-The product, cart, and checkout pages are demonstrations only. No account, search, cart updates, orders, or payments are implemented. Checkout fields and purchase controls are disabled; do not enter personal or payment information.
+Product pages let visitors choose an available size and quantity and add items to the cart. The cart lives in a Flask signed session cookie, and the server validates product variants and prices. Checkout remains visual only: no order or payment is processed, and personal/payment fields stay disabled. Do not enter personal or payment information.
 
 ## Run locally
 
@@ -39,7 +39,7 @@ python -m pip install flask
 python server.py
 ```
 
-Open the local address printed by Flask (typically `http://127.0.0.1:5000`). The Tailwind browser CDN requires an internet connection.
+Open `http://127.0.0.1:3000`. For non-local use, set a private `FLASK_SECRET_KEY` environment variable. The Tailwind browser CDN requires an internet connection.
 
 ## Catalog filter support
 
