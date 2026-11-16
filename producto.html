@@ -74,50 +74,24 @@
       <a href="index.html" class="text-xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900" aria-label="Maison Rive, ir al inicio">
         Maison <span class="font-light">Rive</span>
       </a>
-
-      <form action="catalogo.html" method="get" role="search" class="order-last w-full md:order-none md:mx-6 md:flex-1">
-        <label for="buscar" class="sr-only">Buscar productos</label>
-        <div class="flex items-center rounded-full border border-stone-300 bg-white focus-within:border-stone-900 focus-within:ring-2 focus-within:ring-stone-900/20">
-          <input id="buscar" name="q" type="search" placeholder="Buscar camisas, pantalones, calzado…" autocomplete="off"
-            class="w-full rounded-full bg-transparent px-4 py-2 text-sm placeholder:text-stone-500 focus:outline-none">
-          <button type="submit" class="mr-1 rounded-full bg-stone-900 px-4 py-1.5 text-sm font-medium text-white hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900">
-            Buscar
-          </button>
-        </div>
+      <form role="search" aria-label="Búsqueda de muestra" class="w-full order-3 sm:order-none sm:w-auto sm:flex-1 sm:max-w-xs">
+        <label for="busqueda-producto" class="sr-only">Buscar productos</label>
+        <input id="busqueda-producto" type="search" placeholder="Buscar productos" disabled aria-describedby="busqueda-nota" class="min-h-11 w-full rounded-md border border-stone-300 bg-stone-100 px-3 text-sm">
+        <span id="busqueda-nota" class="sr-only">La búsqueda no está habilitada en este prototipo.</span>
       </form>
-
-      <nav aria-label="Cuenta y carrito" class="ml-auto flex items-center gap-2 md:ml-0">
+      <nav aria-label="Navegación principal" class="ml-auto flex items-center gap-2">
+        <a href="catalogo.html" class="flex min-h-11 items-center rounded-md px-3 text-sm font-medium hover:bg-stone-100">Catálogo</a>
         <details class="relative">
-          <summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900 [&::-webkit-details-marker]:hidden">
-            <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.1a7.5 7.5 0 0 1 15 0"/></svg>
-            <span class="hidden sm:inline">Mi cuenta</span>
-            <span class="sr-only sm:hidden">Mi cuenta</span>
-          </summary>
-          <ul class="absolute right-0 z-50 mt-2 w-52 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
-            <li><a href="login.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Iniciar sesión</a></li>
-            <li><a href="registro.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Crear cuenta</a></li>
-            <li><a href="mis-pedidos.html" class="block px-4 py-2 text-sm hover:bg-stone-100">Mis pedidos</a></li>
-          </ul>
+          <summary class="flex min-h-11 cursor-pointer list-none items-center rounded-md px-3 text-sm font-medium hover:bg-stone-100">Mi cuenta</summary>
+          <p class="absolute right-0 z-10 mt-2 w-56 rounded-md border border-stone-200 bg-white p-3 text-sm shadow-lg">Área de cuenta no disponible en esta maqueta estática.</p>
         </details>
-
-        <a href="carrito.html" class="relative flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900">
+        <a href="carrito.html" class="flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-stone-900">
           <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.4l.4 2m0 0 1.6 8.2h11.5l1.8-6.2H4.05ZM9 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm9 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
           <span class="hidden sm:inline">Carrito</span>
           <span class="sr-only sm:hidden">Carrito</span>
-          <span class="rounded-full bg-stone-900 px-2 py-0.5 text-xs text-white" data-insignia-carrito aria-label="3 productos en el carrito">3</span>
         </a>
       </nav>
     </div>
-
-    <nav aria-label="Categorías principales" class="border-t border-stone-100">
-      <ul class="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 text-sm sm:px-6 lg:px-8">
-        <li><a href="catalogo.html" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Todo</a></li>
-        <li><a href="catalogo.html?categoria=camisas" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Camisas</a></li>
-        <li><a href="catalogo.html?categoria=pantalones" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Pantalones</a></li>
-        <li><a href="catalogo.html?categoria=calzado" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Calzado</a></li>
-        <li><a href="catalogo.html?categoria=accesorios" class="inline-flex min-h-11 items-center whitespace-nowrap px-3 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-stone-900">Accesorios</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main id="contenido" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -131,233 +105,207 @@
       </ol>
     </nav>
 
-    <p class="mt-4 text-sm text-stone-600">Selecciona un artículo para consultar sus fotos, detalles y tallas.</p>
+    <p class="mt-4 text-sm text-stone-600">Explora las fichas de producto de ejemplo. La selección de variantes y la compra no están habilitadas en esta maqueta estática.</p>
 
     <section id="lin-lyon" class="product-view product-clothing product-view-default mt-6">
       <article class="grid gap-8 md:grid-cols-2 lg:gap-12" itemscope itemtype="https://schema.org/Product">
-        <div><img src="assets/products/lin-lyon-1.png" width="800" height="1000" fetchpriority="high" alt="Camisa de cuadros Lyon, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
+        <div>
+          <img src="assets/products/lin-lyon-1.png" width="800" height="1000" fetchpriority="high" alt="Camisa de cuadros Lyon, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
         </div>
         <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 itemprop="name" class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa de cuadros Lyon</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-083</p><p class="mt-4 text-3xl font-semibold">29,99&nbsp;€</p><p itemprop="description" class="mt-4 text-stone-700">Camisa de manga larga con estampado de cuadros azul y negro.</p>
-          <form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="lin-lyon"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-lin-lyon" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-lin-lyon" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-lin-lyon" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-lin-lyon" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-lin-lyon" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-lin-lyon" class="block text-sm font-medium">Cantidad</label><input id="cantidad-lin-lyon" name="cantidad" type="number" min="1" max="10" value="1" inputmode="numeric" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white hover:bg-stone-700">Añadir al carrito</button></form>
+          <div class="mt-6 space-y-4 rounded-xl border border-stone-200 bg-white p-4">
+            <p class="text-sm text-stone-700">Controles ilustrativos: no se guardan selecciones ni se actualiza el carrito.</p>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <label for="talla-lyon" class="text-sm font-medium">Talla
+                <select id="talla-lyon" disabled class="mt-1 min-h-11 w-full rounded-md border border-stone-300 bg-stone-100 px-3"><option>Selecciona una talla</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+              </label>
+              <label for="cantidad-lyon" class="text-sm font-medium">Cantidad
+                <input id="cantidad-lyon" type="number" min="1" value="1" disabled class="mt-1 min-h-11 w-full rounded-md border border-stone-300 bg-stone-100 px-3">
+              </label>
+            </div>
+            <button type="button" disabled class="min-h-12 w-full cursor-not-allowed rounded-full bg-stone-400 px-6 font-semibold text-white">Añadir al carrito · no disponible</button>
+            <div class="grid gap-3 border-t border-stone-200 pt-4 sm:grid-cols-2">
+              <div><h2 class="font-semibold">Materiales</h2><p class="mt-1 text-sm text-stone-600">Algodón de tacto suave con tejido de cuadros.</p></div>
+              <div><h2 class="font-semibold">Uso recomendado</h2><p class="mt-1 text-sm text-stone-600">Una prenda versátil para combinar a diario.</p></div>
+            </div>
+          </div>
         </div>
       </article>
     </section>
 
-    <section id="tee-cannes" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/tee-cannes-1.png" width="800" height="1000" alt="Camiseta blanca Cannes, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camiseta blanca Cannes</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-084</p><p class="mt-4 text-3xl font-semibold">24,99&nbsp;€</p><p class="mt-4 text-stone-700">Camiseta lisa de algodón blanco, de corte recto.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="tee-cannes"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-tee-cannes" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-tee-cannes" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-tee-cannes" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-tee-cannes" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-tee-cannes" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-tee-cannes" class="block text-sm font-medium">Cantidad</label><input id="cantidad-tee-cannes" name="cantidad" type="number" min="1" max="10" value="1" inputmode="numeric" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white hover:bg-stone-700">Añadir al carrito</button></form></div></article></section>
-
-    <section id="chemise-republique" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/chemise-republique-1.png" width="800" height="1000" alt="Camisa de cuadros République, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa de cuadros République</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-085</p><p class="mt-4 text-3xl font-semibold">34,99&nbsp;€</p><p class="mt-4 text-stone-700">Camisa de algodón con cuadros rojos y negros.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="chemise-republique"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-chemise-republique" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-chemise-republique" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-chemise-republique" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-chemise-republique" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-chemise-republique" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-chemise-republique" class="block text-sm font-medium">Cantidad</label><input id="cantidad-chemise-republique" name="cantidad" type="number" min="1" max="10" value="1" inputmode="numeric" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white hover:bg-stone-700">Añadir al carrito</button></form></div></article></section>
-
-    <section id="chemise-arles" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/chemise-arles-1.png" width="800" height="1000" alt="Camisa estampada Arles, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa estampada Arles</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-086</p><p class="mt-4 text-3xl font-semibold">19,99&nbsp;€</p><p class="mt-4 text-stone-700">Camisa de manga corta con estampado floral azul, ideal para el verano.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="chemise-arles"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-chemise-arles" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-chemise-arles" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-chemise-arles" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-chemise-arles" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-chemise-arles" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-chemise-arles" class="block text-sm font-medium">Cantidad</label><input id="cantidad-chemise-arles" name="cantidad" type="number" min="1" max="10" value="1" inputmode="numeric" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white hover:bg-stone-700">Añadir al carrito</button></form></div></article></section>
-
-    <section id="chemise-biarritz" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/chemise-biarritz-1.png" width="800" height="1000" alt="Camisa de cuadros Biarritz, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa de cuadros Biarritz</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-087</p><p class="mt-4 text-3xl font-semibold">27,99&nbsp;€</p><p class="mt-4 text-stone-700">Camisa de cuadros verdes con corte relajado.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="chemise-biarritz"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-chemise-biarritz" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-chemise-biarritz" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-chemise-biarritz" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-chemise-biarritz" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-chemise-biarritz" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-chemise-biarritz" class="block text-sm font-medium">Cantidad</label><input id="cantidad-chemise-biarritz" name="cantidad" type="number" min="1" max="10" value="1" inputmode="numeric" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white hover:bg-stone-700">Añadir al carrito</button></form></div></article></section>
-
-    <section id="chino-marais" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/chino-marais-1.png" width="800" height="1000" alt="Chino sable Marais, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Chino Marais</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-006</p><p class="mt-4 text-3xl font-semibold">69,90&nbsp;€</p><p class="mt-4 text-stone-700">Chino recto de algodón color arena, con un acabado suave.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="chino-marais"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-chino-marais" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-chino-marais" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-chino-marais" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-chino-marais" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-chino-marais" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-chino-marais" class="block text-sm font-medium">Cantidad</label><input id="cantidad-chino-marais" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="jean-paris" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/jean-paris-1.png" width="800" height="1000" alt="Vaqueros rectos Paris en tres tonos de denim, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Vaquero recto Paris</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-007</p><p class="mt-4 text-3xl font-semibold">89,90&nbsp;€</p><p class="mt-4 text-stone-700">Vaquero recto de denim azul medio con lavado de aspecto vintage.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="jean-paris"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-jean-paris" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-jean-paris" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-jean-paris" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-jean-paris" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-jean-paris" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-jean-paris" class="block text-sm font-medium">Cantidad</label><input id="cantidad-jean-paris" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="bermuda-tropez" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/bermuda-tropez-1.png" width="800" height="1000" alt="Bermuda denim Saint-Tropez, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Bermuda denim Saint-Tropez</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-008</p><p class="mt-4 text-3xl font-semibold">49,90&nbsp;€</p><p class="mt-4 text-stone-700">Bermuda en denim azul claro con pernera relajada.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="bermuda-tropez"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-bermuda-tropez" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-bermuda-tropez" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-bermuda-tropez" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-bermuda-tropez" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-bermuda-tropez" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-bermuda-tropez" class="block text-sm font-medium">Cantidad</label><input id="cantidad-bermuda-tropez" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="short-biarritz" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/short-biarritz-1.png" width="800" height="1000" alt="Short a rayas Biarritz con lazada en la cintura, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Short a rayas Biarritz</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-009</p><p class="mt-4 text-3xl font-semibold">45,90&nbsp;€</p><p class="mt-4 text-stone-700">Short de algodón a rayas verticales, con cintura elástica y lazada.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="short-biarritz"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-short-biarritz" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-short-biarritz" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-short-biarritz" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-short-biarritz" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-short-biarritz" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-short-biarritz" class="block text-sm font-medium">Cantidad</label><input id="cantidad-short-biarritz" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="pantalon-arles" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/pantalon-arles-1.png" width="800" height="1000" alt="Jogger rosa Arles, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Jogger rosa Arles</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-010</p><p class="mt-4 text-3xl font-semibold">59,90&nbsp;€</p><p class="mt-4 text-stone-700">Jogger rosa de algodón suave, con cintura y puños elásticos.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="pantalon-arles"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-pantalon-arles" value="xs" class="peer sr-only"><span class="size-option">XS</span></label><label><input type="radio" name="talla-pantalon-arles" value="s" class="peer sr-only"><span class="size-option">S</span></label><label><input type="radio" name="talla-pantalon-arles" value="m" checked class="peer sr-only"><span class="size-option">M</span></label><label><input type="radio" name="talla-pantalon-arles" value="l" class="peer sr-only"><span class="size-option">L</span></label><label><input type="radio" name="talla-pantalon-arles" value="xl" class="peer sr-only"><span class="size-option">XL</span></label></div></fieldset><div><label for="cantidad-pantalon-arles" class="block text-sm font-medium">Cantidad</label><input id="cantidad-pantalon-arles" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="sneaker-bastille" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/sneaker-bastille-1.png" width="800" height="1000" alt="Sneaker de lona burdeos Bastille, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Sneaker de lona burdeos Bastille</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-088</p><p class="mt-4 text-3xl font-semibold">149,99&nbsp;€</p><p class="mt-4 text-stone-700">Sneaker de lona burdeos con cordones crema y suela de goma clara.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="sneaker-bastille"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-sneaker-bastille" value="40" class="peer sr-only"><span class="size-option">40</span></label><label><input type="radio" name="talla-sneaker-bastille" value="41" class="peer sr-only"><span class="size-option">41</span></label><label><input type="radio" name="talla-sneaker-bastille" value="42" checked class="peer sr-only"><span class="size-option">42</span></label><label><input type="radio" name="talla-sneaker-bastille" value="43" class="peer sr-only"><span class="size-option">43</span></label></div></fieldset><div><label for="cantidad-sneaker-bastille" class="block text-sm font-medium">Cantidad</label><input id="cantidad-sneaker-bastille" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="mocassin-lille" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/mocassin-lille-1.png" width="800" height="1000" alt="Mocasín de piel cognac Lille, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Mocasín de piel cognac Lille</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-089</p><p class="mt-4 text-3xl font-semibold">79,99&nbsp;€</p><p class="mt-4 text-stone-700">Mocasín de piel color cognac, con antifaz clásico y suela fina.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="mocassin-lille"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-mocassin-lille" value="40" class="peer sr-only"><span class="size-option">40</span></label><label><input type="radio" name="talla-mocassin-lille" value="41" class="peer sr-only"><span class="size-option">41</span></label><label><input type="radio" name="talla-mocassin-lille" value="42" checked class="peer sr-only"><span class="size-option">42</span></label><label><input type="radio" name="talla-mocassin-lille" value="43" class="peer sr-only"><span class="size-option">43</span></label></div></fieldset><div><label for="cantidad-mocassin-lille" class="block text-sm font-medium">Cantidad</label><input id="cantidad-mocassin-lille" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="alpargata-cassis" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/alpargata-cassis-1.png" width="800" height="1000" alt="Alpargata de lona oliva Cassis, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Alpargata oliva Cassis</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-090</p><p class="mt-4 text-3xl font-semibold">89,99&nbsp;€</p><p class="mt-4 text-stone-700">Alpargata de lona oliva con suela de cuerda trenzada.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="alpargata-cassis"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-alpargata-cassis" value="40" class="peer sr-only"><span class="size-option">40</span></label><label><input type="radio" name="talla-alpargata-cassis" value="41" class="peer sr-only"><span class="size-option">41</span></label><label><input type="radio" name="talla-alpargata-cassis" value="42" checked class="peer sr-only"><span class="size-option">42</span></label><label><input type="radio" name="talla-alpargata-cassis" value="43" class="peer sr-only"><span class="size-option">43</span></label></div></fieldset><div><label for="cantidad-alpargata-cassis" class="block text-sm font-medium">Cantidad</label><input id="cantidad-alpargata-cassis" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="ballerine-tours" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/ballerine-tours-1.png" width="800" height="1000" alt="Bailarina vichy Tours, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Bailarina vichy Tours</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-091</p><p class="mt-4 text-3xl font-semibold">119,99&nbsp;€</p><p class="mt-4 text-stone-700">Bailarina de cuadros vichy rojos y blancos, con lazo fino.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="ballerine-tours"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-ballerine-tours" value="40" class="peer sr-only"><span class="size-option">40</span></label><label><input type="radio" name="talla-ballerine-tours" value="41" class="peer sr-only"><span class="size-option">41</span></label><label><input type="radio" name="talla-ballerine-tours" value="42" checked class="peer sr-only"><span class="size-option">42</span></label><label><input type="radio" name="talla-ballerine-tours" value="43" class="peer sr-only"><span class="size-option">43</span></label></div></fieldset><div><label for="cantidad-ballerine-tours" class="block text-sm font-medium">Cantidad</label><input id="cantidad-ballerine-tours" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="escarpin-menton" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/escarpin-menton-1.png" width="800" height="1000" alt="Zapato de tacón nude Menton, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Zapato de tacón nude Menton</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-092</p><p class="mt-4 text-3xl font-semibold">109,99&nbsp;€</p><p class="mt-4 text-stone-700">Zapato de tacón nude con puntera fina y tacón medio.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="escarpin-menton"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-escarpin-menton" value="40" class="peer sr-only"><span class="size-option">40</span></label><label><input type="radio" name="talla-escarpin-menton" value="41" class="peer sr-only"><span class="size-option">41</span></label><label><input type="radio" name="talla-escarpin-menton" value="42" checked class="peer sr-only"><span class="size-option">42</span></label><label><input type="radio" name="talla-escarpin-menton" value="43" class="peer sr-only"><span class="size-option">43</span></label></div></fieldset><div><label for="cantidad-escarpin-menton" class="block text-sm font-medium">Cantidad</label><input id="cantidad-escarpin-menton" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="lunettes-rive" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/lunettes-rive-1.png" width="800" height="1000" alt="Gafas de sol Rive, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol Rive</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-154</p><p class="mt-4 text-3xl font-semibold">29,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol Rive con montura clásica.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="lunettes-rive"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-lunettes-rive" value="unica" checked class="peer sr-only"><span class="size-option">Única</span></label></div></fieldset><div><label for="cantidad-lunettes-rive" class="block text-sm font-medium">Cantidad</label><input id="cantidad-lunettes-rive" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="monture-sete" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/monture-sete-1.png" width="800" height="1000" alt="Gafas de sol doradas Sète, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol doradas Sète</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-155</p><p class="mt-4 text-3xl font-semibold">24,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol de forma aviador con lentes degradadas.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="monture-sete"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-monture-sete" value="unica" checked class="peer sr-only"><span class="size-option">Única</span></label></div></fieldset><div><label for="cantidad-monture-sete" class="block text-sm font-medium">Cantidad</label><input id="cantidad-monture-sete" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="lunettes-saint-paul" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/lunettes-saint-paul-1.png" width="800" height="1000" alt="Gafas de sol verdes Saint-Paul, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol verdes Saint-Paul</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-156</p><p class="mt-4 text-3xl font-semibold">34,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol con montura verde y detalles negros.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="lunettes-saint-paul"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-lunettes-saint-paul" value="unica" checked class="peer sr-only"><span class="size-option">Única</span></label></div></fieldset><div><label for="cantidad-lunettes-saint-paul" class="block text-sm font-medium">Cantidad</label><input id="cantidad-lunettes-saint-paul" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="lunettes-etoile" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/lunettes-etoile-1.png" width="800" height="1000" alt="Gafas de sol redondas Étoile, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol redondas Étoile</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-157</p><p class="mt-4 text-3xl font-semibold">19,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol redondas con montura gráfica para un look atrevido.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="lunettes-etoile"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-lunettes-etoile" value="unica" checked class="peer sr-only"><span class="size-option">Única</span></label></div></fieldset><div><label for="cantidad-lunettes-etoile" class="block text-sm font-medium">Cantidad</label><input id="cantidad-lunettes-etoile" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-
-    <section id="lunettes-azur" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12"><div><img src="assets/products/lunettes-azur-1.png" width="800" height="1000" alt="Gafas de sol ligeras Azur, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
-          <div class="mt-3 grid grid-cols-3 gap-3" aria-label="Espacios reservados para imágenes adicionales del producto">
-            <span class="sr-only">Tres marcos vacíos reservados para futuras imágenes del producto.</span>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-            <div class="aspect-4/5 rounded-lg border-2 border-dashed border-stone-300 bg-stone-100" aria-hidden="true"></div>
-          </div>
-        </div><div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol ligeras Azur</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-158</p><p class="mt-4 text-3xl font-semibold">22,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol sin montura, ligeras para el verano.</p><form action="carrito.html" method="get" class="mt-6 space-y-6"><input type="hidden" name="producto" value="lunettes-azur"><fieldset><legend class="text-sm font-medium">Talla</legend><div class="mt-2 flex flex-wrap gap-2"><label><input type="radio" name="talla-lunettes-azur" value="unica" checked class="peer sr-only"><span class="size-option">Única</span></label></div></fieldset><div><label for="cantidad-lunettes-azur" class="block text-sm font-medium">Cantidad</label><input id="cantidad-lunettes-azur" name="cantidad" type="number" min="1" max="10" value="1" class="mt-2 min-h-11 w-24 rounded-md border border-stone-300 px-3"></div><button type="submit" class="min-h-12 rounded-full bg-stone-900 px-8 font-semibold text-white">Añadir al carrito</button></form></div></article></section>
-    <section aria-labelledby="guia-ropa-titulo" class="size-guide size-guide-clothes mt-10 rounded-xl border border-stone-200 bg-white p-6">
-      <h2 id="guia-ropa-titulo" class="text-xl font-semibold tracking-tight">Guía de tallas: ropa</h2>
-      <p class="mt-2 text-sm text-stone-600">Medidas corporales en centímetros. Si estás entre dos tallas, elige la mayor.</p>
-      <div class="mt-4 overflow-x-auto">
-        <table class="w-full min-w-120 text-left text-sm">
-          <caption class="sr-only">Equivalencia entre tallas de letras, tallas europeas y medidas corporales</caption>
-          <thead class="border-b border-stone-300 text-stone-600"><tr><th scope="col" class="py-2 pr-4 font-medium">Talla</th><th scope="col" class="py-2 pr-4 font-medium">Talla europea</th><th scope="col" class="py-2 pr-4 font-medium">Pecho (cm)</th><th scope="col" class="py-2 pr-4 font-medium">Cintura (cm)</th><th scope="col" class="py-2 font-medium">Cadera (cm)</th></tr></thead>
-          <tbody class="divide-y divide-stone-200">
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">XS</th><td class="py-2 pr-4">44</td><td class="py-2 pr-4">86–90</td><td class="py-2 pr-4">72–76</td><td class="py-2">90–94</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">S</th><td class="py-2 pr-4">46</td><td class="py-2 pr-4">90–94</td><td class="py-2 pr-4">76–80</td><td class="py-2">94–98</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">M</th><td class="py-2 pr-4">48</td><td class="py-2 pr-4">94–98</td><td class="py-2 pr-4">80–84</td><td class="py-2">98–102</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">L</th><td class="py-2 pr-4">50</td><td class="py-2 pr-4">98–102</td><td class="py-2 pr-4">84–88</td><td class="py-2">102–106</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">XL</th><td class="py-2 pr-4">52</td><td class="py-2 pr-4">102–106</td><td class="py-2 pr-4">88–92</td><td class="py-2">106–110</td></tr>
-          </tbody>
-        </table>
+    <section id="tee-cannes" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/tee-cannes-1.png" width="800" height="1000" alt="Camiseta blanca Cannes, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camiseta blanca Cannes</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-084</p><p class="mt-4 text-3xl font-semibold">24,99&nbsp;€</p><p class="mt-4 text-stone-700">Camiseta lisa de algodón blanco, de corte recto.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
       </div>
+    </article>
     </section>
 
-    <section aria-labelledby="guia-calzado-titulo" class="size-guide size-guide-shoes mt-10 rounded-xl border border-stone-200 bg-white p-6">
-      <h2 id="guia-calzado-titulo" class="text-xl font-semibold tracking-tight">Guía de tallas: calzado</h2>
-      <p class="mt-2 text-sm text-stone-600">Mide tu pie de talón a punta y elige la talla europea correspondiente.</p>
-      <div class="mt-4 overflow-x-auto">
-        <table class="w-full min-w-96 text-left text-sm">
-          <caption class="sr-only">Equivalencia entre tallas europeas de calzado y longitud del pie</caption>
-          <thead class="border-b border-stone-300 text-stone-600"><tr><th scope="col" class="py-2 pr-4 font-medium">Talla europea</th><th scope="col" class="py-2 font-medium">Longitud del pie (cm)</th></tr></thead>
-          <tbody class="divide-y divide-stone-200">
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">40</th><td class="py-2">25,0</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">41</th><td class="py-2">25,7</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">42</th><td class="py-2">26,3</td></tr>
-            <tr><th scope="row" class="py-2 pr-4 font-semibold">43</th><td class="py-2">27,0</td></tr>
-          </tbody>
-        </table>
+    <section id="chemise-republique" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/chemise-republique-1.png" width="800" height="1000" alt="Camisa de cuadros République, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa de cuadros République</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-085</p><p class="mt-4 text-3xl font-semibold">34,99&nbsp;€</p><p class="mt-4 text-stone-700">Camisa de algodón con cuadros rojos y negros.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
       </div>
+    </article>
+    </section>
+
+    <section id="chemise-arles" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/chemise-arles-1.png" width="800" height="1000" alt="Camisa estampada Arles, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa estampada Arles</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-086</p><p class="mt-4 text-3xl font-semibold">19,99&nbsp;€</p><p class="mt-4 text-stone-700">Camisa de manga corta con estampado floral azul, ideal para el verano.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="chemise-biarritz" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/chemise-biarritz-1.png" width="800" height="1000" alt="Camisa de cuadros Biarritz, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Camisas</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Camisa de cuadros Biarritz</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAM-087</p><p class="mt-4 text-3xl font-semibold">27,99&nbsp;€</p><p class="mt-4 text-stone-700">Camisa de cuadros verdes con corte relajado.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="chino-marais" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/chino-marais-1.png" width="800" height="1000" alt="Chino sable Marais, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Chino Marais</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-006</p><p class="mt-4 text-3xl font-semibold">69,90&nbsp;€</p><p class="mt-4 text-stone-700">Chino recto de algodón color arena, con un acabado suave.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="jean-paris" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/jean-paris-1.png" width="800" height="1000" alt="Vaqueros rectos Paris en tres tonos de denim, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Vaquero recto Paris</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-007</p><p class="mt-4 text-3xl font-semibold">89,90&nbsp;€</p><p class="mt-4 text-stone-700">Vaquero recto de denim azul medio con lavado de aspecto vintage.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="bermuda-tropez" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/bermuda-tropez-1.png" width="800" height="1000" alt="Bermuda denim Saint-Tropez, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Bermuda denim Saint-Tropez</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-008</p><p class="mt-4 text-3xl font-semibold">49,90&nbsp;€</p><p class="mt-4 text-stone-700">Bermuda en denim azul claro con pernera relajada.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="short-biarritz" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/short-biarritz-1.png" width="800" height="1000" alt="Short a rayas Biarritz con lazada en la cintura, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Short a rayas Biarritz</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-009</p><p class="mt-4 text-3xl font-semibold">45,90&nbsp;€</p><p class="mt-4 text-stone-700">Short de algodón a rayas verticales, con cintura elástica y lazada.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="pantalon-arles" class="product-view product-clothing mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/pantalon-arles-1.png" width="800" height="1000" alt="Jogger rosa Arles, vista general" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Pantalones</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Jogger rosa Arles</h1><p class="mt-2 text-sm text-stone-600">Código: MA-PAN-010</p><p class="mt-4 text-3xl font-semibold">59,90&nbsp;€</p><p class="mt-4 text-stone-700">Jogger rosa de algodón suave, con cintura y puños elásticos.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="sneaker-bastille" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/sneaker-bastille-1.png" width="800" height="1000" alt="Sneaker de lona burdeos Bastille, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Sneaker de lona burdeos Bastille</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-088</p><p class="mt-4 text-3xl font-semibold">149,99&nbsp;€</p><p class="mt-4 text-stone-700">Sneaker de lona burdeos con cordones crema y suela de goma clara.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="mocassin-lille" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/mocassin-lille-1.png" width="800" height="1000" alt="Mocasín de piel cognac Lille, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Mocasín de piel cognac Lille</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-089</p><p class="mt-4 text-3xl font-semibold">79,99&nbsp;€</p><p class="mt-4 text-stone-700">Mocasín de piel color cognac, con antifaz clásico y suela fina.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="alpargata-cassis" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/alpargata-cassis-1.png" width="800" height="1000" alt="Alpargata de lona oliva Cassis, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Alpargata oliva Cassis</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-090</p><p class="mt-4 text-3xl font-semibold">89,99&nbsp;€</p><p class="mt-4 text-stone-700">Alpargata de lona oliva con suela de cuerda trenzada.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="ballerine-tours" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/ballerine-tours-1.png" width="800" height="1000" alt="Bailarina vichy Tours, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Bailarina vichy Tours</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-091</p><p class="mt-4 text-3xl font-semibold">119,99&nbsp;€</p><p class="mt-4 text-stone-700">Bailarina de cuadros vichy rojos y blancos, con lazo fino.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="escarpin-menton" class="product-view product-shoes mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/escarpin-menton-1.png" width="800" height="1000" alt="Zapato de tacón nude Menton, vista lateral" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Calzado</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Zapato de tacón nude Menton</h1><p class="mt-2 text-sm text-stone-600">Código: MA-CAL-092</p><p class="mt-4 text-3xl font-semibold">109,99&nbsp;€</p><p class="mt-4 text-stone-700">Zapato de tacón nude con puntera fina y tacón medio.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="lunettes-rive" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/lunettes-rive-1.png" width="800" height="1000" alt="Gafas de sol Rive, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol Rive</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-154</p><p class="mt-4 text-3xl font-semibold">29,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol Rive con montura clásica.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="monture-sete" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/monture-sete-1.png" width="800" height="1000" alt="Gafas de sol doradas Sète, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol doradas Sète</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-155</p><p class="mt-4 text-3xl font-semibold">24,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol de forma aviador con lentes degradadas.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="lunettes-saint-paul" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/lunettes-saint-paul-1.png" width="800" height="1000" alt="Gafas de sol verdes Saint-Paul, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol verdes Saint-Paul</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-156</p><p class="mt-4 text-3xl font-semibold">34,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol con montura verde y detalles negros.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="lunettes-etoile" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/lunettes-etoile-1.png" width="800" height="1000" alt="Gafas de sol redondas Étoile, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol redondas Étoile</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-157</p><p class="mt-4 text-3xl font-semibold">19,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol redondas con montura gráfica para un look atrevido.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
+    </section>
+
+    <section id="lunettes-azur" class="product-view mt-6"><article class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+          <img src="assets/products/lunettes-azur-1.png" width="800" height="1000" alt="Gafas de sol ligeras Azur, vista frontal" class="aspect-4/5 w-full rounded-2xl object-cover">
+        </div>
+        <div><p class="text-sm font-medium uppercase tracking-widest text-stone-600">Accesorios</p><h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Gafas de sol ligeras Azur</h1><p class="mt-2 text-sm text-stone-600">Código: MA-ACC-158</p><p class="mt-4 text-3xl font-semibold">22,99&nbsp;€</p><p class="mt-4 text-stone-700">Gafas de sol sin montura, ligeras para el verano.</p><p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra. La compra no está habilitada en esta maqueta estática.</p>
+      </div>
+    </article>
     </section>
 
     <p class="mt-8"><a href="catalogo.html" class="underline underline-offset-4">Volver al catálogo</a></p>
   </main>
-
-  <script src="tienda.js" defer></script>
 
   <!-- Footer (reutilizable en todas las vistas) -->
   <footer class="mt-8 bg-stone-900 text-stone-300">
@@ -370,10 +318,10 @@
       <nav aria-labelledby="footer-categorias">
         <h2 id="footer-categorias" class="text-sm font-semibold uppercase tracking-wider text-white">Categorías</h2>
         <ul class="mt-3 space-y-1 text-sm">
-          <li><a href="catalogo.html?categoria=calzado" class="inline-block py-1 hover:text-white hover:underline">Calzado</a></li>
-          <li><a href="catalogo.html?categoria=camisas" class="inline-block py-1 hover:text-white hover:underline">Camisas</a></li>
-          <li><a href="catalogo.html?categoria=pantalones" class="inline-block py-1 hover:text-white hover:underline">Pantalones</a></li>
-          <li><a href="catalogo.html?categoria=accesorios" class="inline-block py-1 hover:text-white hover:underline">Accesorios</a></li>
+          <li><a href="catalogo.html#calzado" class="inline-block py-1 hover:text-white hover:underline">Calzado</a></li>
+          <li><a href="catalogo.html#camisas" class="inline-block py-1 hover:text-white hover:underline">Camisas</a></li>
+          <li><a href="catalogo.html#pantalones" class="inline-block py-1 hover:text-white hover:underline">Pantalones</a></li>
+          <li><a href="catalogo.html#accesorios" class="inline-block py-1 hover:text-white hover:underline">Accesorios</a></li>
         </ul>
       </nav>
 
