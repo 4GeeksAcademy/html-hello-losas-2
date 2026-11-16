@@ -1,37 +1,28 @@
-# HTML Hello
+# Maison Rive
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/html-hello.git)
+这是一个为虚构法国时尚品牌制作的静态网店原型。项目使用 HTML 和 CSS，通过浏览器 CDN 引入 Tailwind CSS v4，不包含自定义应用 JavaScript。
 
-为使用 [gitpod.io](gitpod.io) 代码编辑器 4Geeks Academy 学生提供的最基础的样板。
+## 页面
 
-[![How to open html/css preview of my project in gitpod](https://github.com/4GeeksAcademy/Templates-Boilerplates/blob/master/assets/hello-html-intro.png?raw=true)](https://youtu.be/dfbDCMu_p-0)
+- `index.html`：首页。
+- `catalogo.html`：包含 20 件商品，并提供按类别和尺码筛选的纯 CSS 功能。
+- `producto.html`：通过 URL 片段选择的示例商品详情。
+- `carrito.html`：示例购物车。
+- `checkout.html`：示例结账页面。
 
-## 接下来怎么做？
+商品、购物车和结账页面仅用于演示。账户、搜索、购物车更新、订单和支付功能均未实现。结账字段和购买控件已禁用；请勿输入个人或支付信息。
 
-创建一个具有 [基本 HTML 页面结构](http://content.breatheco.de/lesson/what-is-html-learn-html#page-structure) 的 `index.html` 文件并通过使用以下命令，实时预览 Web 服务器提供的 HTML 页面：
+## 本地运行
+
+需要 Python 3 和 Flask：
 
 ```sh
-$ pip3 install flask && python3 server.py
+python -m pip install flask
+python server.py
 ```
 
-- 您可以根据需要创建任意数量的 HTML 文件
-- 您还可以使用放置在 `<head></head>` 标签之间的 `<link>` 标签创建 CSS 文件并将它们导入您的网站，如下所示：
+打开 Flask 显示的本地地址（通常为 `http://127.0.0.1:5000`）。Tailwind CDN 需要互联网连接。
 
-```html
-<head>
-  ...
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
-```
+## 商品筛选兼容性
 
-- 如果你想使用 Tailwind CSS，也可以选择在同一个 `<head>` 中通过官方的 Tailwind CSS v4 CDN 引入：
-
-```html
-<head>
-  ...
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
-```
+筛选使用 HTML 单选按钮和 CSS `:has()` 选择器。请使用支持 `:has()` 的现代浏览器。筛选状态不会保存在 URL 中，也不会显示动态结果数量。
