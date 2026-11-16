@@ -116,20 +116,22 @@ def product_form(product: dict) -> str:
 
 def render_product_page() -> str:
     page = (BASE_DIR / "producto.html").read_text(encoding="utf-8")
-    pattern = re.compile(r'(<section id="([^"]+)"[^>]*>)(.*?)(</section>)', re.DOTALL)
-
-    def add_form(match: re.Match) -> str:
-        opening, product_id, body, closing = match.groups()
-        product = PRODUCTS.get(product_id)
-        if not product:
-            return match.group(0)
-        notice = re.compile(r'<p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra\. La compra no está habilitada en esta maqueta estática\.</p>')
-        body, changed = notice.subn(product_form(product), body, count=1)
-        if not changed:
-            body += product_form(product)
-        return opening + body + closing
-
-    page = pattern.sub(add_form, page)
+    # Replace the static notice directly rather than capturing each outer
+    # product section with a non-greedy regex: product sections contain nested
+    # <section> elements, so that regex would stop at the nested closing tag.
+    product_ids = [
+        product_id
+        for product_id in re.findall(r'<section id="([^"]+)"[^>]*>', page)
+        if product_id in PRODUCTS
+    ]
+    notice = re.compile(
+        r'<p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">'
+        r'Ficha de producto de muestra\. La compra no está habilitada en esta maqueta estática\.</p>'
+    )
+    if len(product_ids) != len(PRODUCTS) or notice.subn("", page)[1] != len(product_ids):
+        raise ValueError("Cada ficha de producto debe tener exactamente un aviso estático.")
+    forms = iter(product_form(PRODUCTS[product_id]) for product_id in product_ids)
+    page = notice.sub(lambda _: next(forms), page)
     return page.replace(
         "Explora las fichas de producto de ejemplo. La selección de variantes y la compra no están habilitadas en esta maqueta estática.",
         "Elige una variante y una cantidad para añadir productos al carrito. Las selecciones se guardan en esta sesión.",
