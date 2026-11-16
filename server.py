@@ -110,9 +110,7 @@ def product_form(product: dict) -> str:
         f'<label for="cantidad-{escape(product["id"])}" class="text-sm font-medium">Cantidad'
         f'<input id="cantidad-{escape(product["id"])}" name="quantity" type="number" min="1" max="20" value="1" required class="mt-1 min-h-11 w-full rounded-md border border-stone-300 px-3"></label></div>'
         '<button type="submit" class="min-h-12 w-full rounded-full bg-stone-900 px-6 font-semibold text-white hover:bg-stone-700">Añadir al carrito</button>'
-        '<div class="grid gap-3 border-t border-stone-200 pt-4 sm:grid-cols-2">'
-        '<div><h2 class="font-semibold">Materiales</h2><p class="mt-1 text-sm text-stone-600">Tejidos seleccionados para un uso cómodo y duradero.</p></div>'
-        '<div><h2 class="font-semibold">Uso recomendado</h2><p class="mt-1 text-sm text-stone-600">Una prenda versátil para combinar a diario.</p></div></div></form>'
+        '</form>'
     )
 
 
@@ -125,16 +123,10 @@ def render_product_page() -> str:
         product = PRODUCTS.get(product_id)
         if not product:
             return match.group(0)
-        if product_id == "lin-lyon":
-            body = re.sub(
-                r'<div class="mt-6 space-y-4 rounded-xl border border-stone-200 bg-white p-4">.*?</div>\s*</div>\s*</article>',
-                product_form(product) + "</div></article>", body, count=1, flags=re.DOTALL,
-            )
-        else:
-            notice = re.compile(r'<p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra\. La compra no está habilitada en esta maqueta estática\.</p>')
-            body, changed = notice.subn(product_form(product), body, count=1)
-            if not changed:
-                body += product_form(product)
+        notice = re.compile(r'<p class="mt-6 rounded-md bg-stone-100 p-4 text-sm text-stone-700">Ficha de producto de muestra\. La compra no está habilitada en esta maqueta estática\.</p>')
+        body, changed = notice.subn(product_form(product), body, count=1)
+        if not changed:
+            body += product_form(product)
         return opening + body + closing
 
     page = pattern.sub(add_form, page)
